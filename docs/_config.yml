@@ -1,0 +1,24 @@
+title: Bridge Grades Documentation
+description: |
+  Documentation for the Bridge Grades project, which provides a comprehensive grading system for bridge players.
+  This book includes tutorials, guides, and references to help users understand and utilize the grading system effectively.
+author: Bridge Grades Team
+logo: BRIDGE_GRADES_LOGO.png
+
+execute:
+  execute_notebooks: off
+
+latex:
+  latex_documents:
+    targetname: book.tex
+
+bibtex_bibfiles:
+  - references.bib
+
+repository:
+  url: https://github.com/executablebooks/jupyter-book  
+  path_to_book: docs  
+  branch: master  
+html:
+  use_issues_button: true
+  use_repository_button: true
