@@ -1,0 +1,1191 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Source C-D-E-F: App Communications Calculations Data Processing &#8212; Bridge Grades Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Source C-D-E-F';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Source M: Cook Political Partisan Voting Index (PVI) Processing" href="Source%20M.html" />
+    <link rel="prev" title="Source A-B: Legislator and Sponsorship Data Processing" href="Source%20A-B.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/BRIDGE_GRADES_LOGO.png" class="logo__image only-light" alt="Bridge Grades Documentation - Home"/>
+    <script>document.write(`<img src="_static/BRIDGE_GRADES_LOGO.png" class="logo__image only-dark" alt="Bridge Grades Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Project%20Explanation.html"><strong>About Bridge Grades Project</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sources%20of%20Information.html"><strong>Bridge Grades Data Sources</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Current_Legislators/get_current_members.html"><strong>Current Legislators Data Collection: Congress.gov API</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Current_Legislators/get_legislator_info_plural.html"><strong>Plural Policy Legislator Data Processing</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Source%20A-B.html"><strong>Source A-B: Legislator and Sponsorship Data Processing</strong></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Source C-D-E-F: App Communications Calculations Data Processing</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Source%20M.html"><strong>Source M: Cook Political Partisan Voting Index (PVI) Processing</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Source%20N.html"><strong>Source N: VoteView Member Ideology Scores Processing</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Bridge_Grades_Calculation.html"><strong>Bridge Grades Calculation: Final Bridge Grade Calculation Engine</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Suggested_Weights.html"><strong>Suggested Weights for Bridge Grades System</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Next%20Steps.html"><strong>Next Steps</strong></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSource C-D-E-F.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Source C-D-E-F.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Source C-D-E-F: App Communications Calculations Data Processing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Source C-D-E-F: App Communications Calculations Data Processing</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources"><strong>Data Sources</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-files"><strong>Input Files</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-source-details"><strong>Data Source Details</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outputs"><strong>Outputs</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-c-bipartisan-communication-sum"><strong>Source C: Bipartisan Communication Sum</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-d-bipartisan-communication-percentage"><strong>Source D: Bipartisan Communication Percentage</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-e-personal-attack-sum"><strong>Source E: Personal Attack Sum</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-f-personal-attack-percentage"><strong>Source F: Personal Attack Percentage</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-output-dataset"><strong>Complete Output Dataset</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-requirements"><strong>Technical Requirements</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies"><strong>Dependencies</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-notes"><strong>Performance Notes</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality"><strong>Data Quality</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-integrity-notes"><strong>Data Integrity Notes</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-metrics"><strong>Key Metrics</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-walkthrough-preprocessing-for-bridge-grades-app-communications-calculations-data"><strong>Notebook Walkthrough: Preprocessing for Bridge Grades: App Communications Calculations Data</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bipartisanship-processing"><strong>Bipartisanship processing</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-and-aggregation-of-app-communication-data"><strong>Processing and Aggregation of APP Communication Data</strong></a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="source-c-d-e-f-app-communications-calculations-data-processing">
+<h1><strong>Source C-D-E-F: App Communications Calculations Data Processing</strong><a class="headerlink" href="#source-c-d-e-f-app-communications-calculations-data-processing" title="Link to this heading">#</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Overview</p>
+<p>This notebook processes public communication data from legislators in the 119th U.S. Congress to generate four foundational datasets for the Bridge Grades methodology:</p>
+<ul class="simple">
+<li><p><strong>Source C:</strong> <em>Bipartisan Communication Sum</em> - Total count of bipartisan communications per legislator</p></li>
+<li><p><strong>Source D:</strong> <em>Bipartisan Communication Percentage</em> - Share of total communications that are bipartisan per legislator</p></li>
+<li><p><strong>Source E:</strong> <em>Personal Attack Sum</em> - Total count of personal attacks per legislator</p></li>
+<li><p><strong>Source F:</strong> <em>Personal Attack Percentage</em> - Share of total communications that are personal attacks per legislator</p></li>
+</ul>
+<p>These datasets serve as key inputs for computing individual Bridge Grades by analyzing patterns of bipartisan rhetoric and divisive communication in public statements.</p>
+</div>
+<section id="data-sources">
+<h2><strong>Data Sources</strong><a class="headerlink" href="#data-sources" title="Link to this heading">#</a></h2>
+<section id="input-files">
+<h3><strong>Input Files</strong><a class="headerlink" href="#input-files" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">2025.csv</span></code></strong> - Raw communication data from Americas Political Pulse</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">119th_Congress_*.csv</span></code></strong> - Bioguide ID mapping for 119th Congress legislators</p></li>
+</ul>
+</section>
+<section id="data-source-details">
+<h3><strong>Data Source Details</strong><a class="headerlink" href="#data-source-details" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Source:</strong> <a class="reference external" href="https://open.pluralpolicy.com/data/session-csv/">Americas Political Pulse</a></p></li>
+<li><p><strong>Congress:</strong> 119th U.S. Congress</p></li>
+<li><p><strong>Download Date:</strong> August 8, 2025</p></li>
+<li><p><strong>Coverage:</strong> All forms of public communication by legislators including:</p>
+<ul>
+<li><p>Floor speeches</p></li>
+<li><p>Newsletters</p></li>
+<li><p>Press releases</p></li>
+<li><p>Tweets/X posts</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="outputs">
+<h2><strong>Outputs</strong><a class="headerlink" href="#outputs" title="Link to this heading">#</a></h2>
+<section id="source-c-bipartisan-communication-sum">
+<h3><strong>Source C: Bipartisan Communication Sum</strong><a class="headerlink" href="#source-c-bipartisan-communication-sum" title="Link to this heading">#</a></h3>
+<p><strong>Column:</strong> <code class="docutils literal notranslate"><span class="pre">outcome_bipartisanship</span></code> in <code class="docutils literal notranslate"><span class="pre">bridge_grades_source_cdef_app_communication.csv</span></code></p>
+<p><strong>Description:</strong> Total count of communications flagged as bipartisan per legislator.</p>
+<p><strong>Interpretation:</strong> Higher values indicate legislators who engage in more bipartisan rhetoric across all their public communications.</p>
+</section>
+<section id="source-d-bipartisan-communication-percentage">
+<h3><strong>Source D: Bipartisan Communication Percentage</strong><a class="headerlink" href="#source-d-bipartisan-communication-percentage" title="Link to this heading">#</a></h3>
+<p><strong>Column:</strong> <code class="docutils literal notranslate"><span class="pre">outcome_bipartisanship_pct</span></code> in <code class="docutils literal notranslate"><span class="pre">bridge_grades_source_cdef_app_communication.csv</span></code></p>
+<p><strong>Description:</strong> Percentage of total communications that are flagged as bipartisan per legislator.</p>
+<p><strong>Interpretation:</strong> Higher percentages indicate legislators whose communication style is more consistently bipartisan relative to their total output.</p>
+</section>
+<section id="source-e-personal-attack-sum">
+<h3><strong>Source E: Personal Attack Sum</strong><a class="headerlink" href="#source-e-personal-attack-sum" title="Link to this heading">#</a></h3>
+<p><strong>Column:</strong> <code class="docutils literal notranslate"><span class="pre">attack_personal</span></code> in <code class="docutils literal notranslate"><span class="pre">bridge_grades_source_cdef_app_communication.csv</span></code></p>
+<p><strong>Description:</strong> Total count of communications flagged as personal attacks per legislator.</p>
+<p><strong>Interpretation:</strong> Higher values indicate legislators who engage in more personal attacks across all their public communications.</p>
+</section>
+<section id="source-f-personal-attack-percentage">
+<h3><strong>Source F: Personal Attack Percentage</strong><a class="headerlink" href="#source-f-personal-attack-percentage" title="Link to this heading">#</a></h3>
+<p><strong>Column:</strong> <code class="docutils literal notranslate"><span class="pre">attack_personal_pct</span></code> in <code class="docutils literal notranslate"><span class="pre">bridge_grades_source_cdef_app_communication.csv</span></code></p>
+<p><strong>Description:</strong> Percentage of total communications that are flagged as personal attacks per legislator.</p>
+<p><strong>Interpretation:</strong> Higher percentages indicate legislators whose communication style is more consistently divisive relative to their total output.</p>
+</section>
+<section id="complete-output-dataset">
+<h3><strong>Complete Output Dataset</strong><a class="headerlink" href="#complete-output-dataset" title="Link to this heading">#</a></h3>
+<p><strong>File:</strong> <code class="docutils literal notranslate"><span class="pre">bridge_grades_source_cdef_app_communication.csv</span></code></p>
+<p><strong>Columns:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">bioguide_id</span></code>: Unique legislator identifier</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">full_name</span></code>: Legislator’s full name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">communication_count</span></code>: Total number of communications</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">attack_personal</span></code>: Sum of personal attacks (Source E)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">outcome_bipartisanship</span></code>: Sum of bipartisan communications (Source C)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">policy</span></code>: Sum of policy-focused communications</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">attack_personal_pct</span></code>: Percentage of personal attacks (Source F)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">outcome_bipartisanship_pct</span></code>: Percentage of bipartisan communications (Source D)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">policy_pct</span></code>: Percentage of policy-focused communications</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="technical-requirements">
+<h2><strong>Technical Requirements</strong><a class="headerlink" href="#technical-requirements" title="Link to this heading">#</a></h2>
+<section id="dependencies">
+<h3><strong>Dependencies</strong><a class="headerlink" href="#dependencies" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code>: Data manipulation and analysis</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>: Numerical operations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code>: Data visualization</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">re</span></code>: Regular expressions for text processing</p></li>
+</ul>
+</section>
+<section id="performance-notes">
+<h3><strong>Performance Notes</strong><a class="headerlink" href="#performance-notes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Aggregation operations are efficient using pandas groupby functions</p></li>
+<li><p>Percentage calculations provide normalized metrics for fair comparison</p></li>
+<li><p>All original communication records are preserved for transparency</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="data-quality">
+<h2><strong>Data Quality</strong><a class="headerlink" href="#data-quality" title="Link to this heading">#</a></h2>
+<section id="data-integrity-notes">
+<h3><strong>Data Integrity Notes</strong><a class="headerlink" href="#data-integrity-notes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Communication data is automatically collected from multiple public sources</p></li>
+<li><p>Flags are applied consistently across all communication types</p></li>
+<li><p>Bioguide ID matching ensures reliable legislator identification</p></li>
+<li><p>Percentage calculations normalize for differences in communication volume</p></li>
+</ul>
+</section>
+<section id="key-metrics">
+<h3><strong>Key Metrics</strong><a class="headerlink" href="#key-metrics" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Communication Volume:</strong> Varies significantly by legislator</p></li>
+<li><p><strong>Flagging Consistency:</strong> Applied uniformly across all communication types</p></li>
+<li><p><strong>Coverage:</strong> Includes all major forms of public communication</p></li>
+<li><p><strong>Timeliness:</strong> Data reflects current 119th Congress activity</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="notebook-walkthrough-preprocessing-for-bridge-grades-app-communications-calculations-data">
+<h1><strong>Notebook Walkthrough: Preprocessing for Bridge Grades: App Communications Calculations Data</strong><a class="headerlink" href="#notebook-walkthrough-preprocessing-for-bridge-grades-app-communications-calculations-data" title="Link to this heading">#</a></h1>
+<p>This notebook prepares the input data used to generate 4 foundational resources in the Bridge Grades methodology:</p>
+<ul class="simple">
+<li><p><strong>Source C:</strong> <em>Sums the outcome_bipartisan column for each representative from the communication file.</em></p></li>
+<li><p><strong>Source D:</strong> <em>Takes the outcome_bipartisan sum for each representative from the communication file and divides it by the total number of communications that representative had in the entire file.</em></p></li>
+<li><p><strong>Source E:</strong> <em>Sums the attack_personal column for each representative from the communication file</em></p></li>
+<li><p><strong>Source F:</strong> <em>Sums the attack_personal column for each representative and divides it by the total number of communications</em></p></li>
+</ul>
+<p>These resources serve as the basis for computing individual Bridge Grades by analyzing patterns of bipartisan legislative collaboration in the U.S. Congress.</p>
+<p>The datasets processed here correspond to the <strong>119th U.S. Congress</strong> and were downloaded from the public data portal at <a class="reference external" href="https://americaspoliticalpulse.com/data/">Americas Political Pulse</a>.</p>
+<ul class="simple">
+<li><p><strong>Date downloaded:</strong> August 8, 2025</p></li>
+<li><p><strong>Data includes:</strong> All forms of public communication by legislators in the House and Senate are automatically collected, including:</p>
+<ul>
+<li><p>Floor speeches</p></li>
+<li><p>Newsletters</p></li>
+<li><p>Press releases</p></li>
+<li><p>Tweets/X</p></li>
+</ul>
+</li>
+<li><p><strong>Download instructions:</strong></p>
+<ol class="arabic simple">
+<li><p>Go to the button on the left side that says US-OFFICIALS and download by clicking on the button that says download. or click <a class="reference external" href="https://n954x0475j.execute-api.us-east-1.amazonaws.com/default//count/elite-data/rhetoric/2025.zip">Here</a>.</p></li>
+<li><p>Go to US –&gt; Download 2025 –&gt; 2025-04-24 app comm raw.csv.csv</p></li>
+</ol>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Uncomment to run from colab in google drive</span>
+
+<span class="c1"># from google.colab import drive</span>
+<span class="c1"># drive.mount(&#39;/content/drive&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mounted at /content/drive
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install and import required libraries</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load raw data comunications</span>
+<span class="n">df</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../Data/Source C-D-E-F/Input files/2025.csv&#39;</span><span class="p">,</span><span class="n">low_memory</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Read in the 119th Congress data with bioguide ids</span>
+<span class="n">files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;../Data/Source C-D-E-F/Input files/119th_Congress_*.csv&quot;</span><span class="p">))</span>
+<span class="n">latest</span> <span class="o">=</span> <span class="n">files</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">df_119</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">latest</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="bipartisanship-processing">
+<h2><strong>Bipartisanship processing</strong><a class="headerlink" href="#bipartisanship-processing" title="Link to this heading">#</a></h2>
+<p>This helper function transforms the raw 119th Congress bioguide spreadsheet into a clean lookup by promoting the header row, extracting and reformatting full names, and retaining only <code class="docutils literal notranslate"><span class="pre">bioguide_id</span></code> and <code class="docutils literal notranslate"><span class="pre">full_name</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">df_119</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_bioguide</span> <span class="o">=</span> <span class="n">df_119</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_bioguide</span><span class="p">[</span><span class="s1">&#39;full_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_bioguide</span><span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">df_bioguide</span><span class="p">[</span><span class="s1">&#39;last_name&#39;</span><span class="p">]</span>
+<span class="n">df_bioguide</span> <span class="o">=</span> <span class="n">df_bioguide</span><span class="p">[[</span><span class="s1">&#39;bioguide_id&#39;</span><span class="p">,</span> <span class="s1">&#39;full_name&#39;</span><span class="p">]]</span>
+<span class="n">df_bioguide</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bioguide_id</th>
+      <th>full_name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>M001233</td>
+      <td>Mark Messmer</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>R000617</td>
+      <td>Delia Ramirez</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>S001232</td>
+      <td>Tim Sheehy</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>L000570</td>
+      <td>Ben Luján</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>H001089</td>
+      <td>Josh Hawley</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="processing-and-aggregation-of-app-communication-data">
+<h2><strong>Processing and Aggregation of APP Communication Data</strong><a class="headerlink" href="#processing-and-aggregation-of-app-communication-data" title="Link to this heading">#</a></h2>
+<p>This function distills the raw APP communications data into per‐legislator summaries by counting total messages, aggregating personal attacks, bipartisan outcomes, and policy mentions, and then computing corresponding percentage rates for 2025.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">clean_communications_app</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="c1"># Keep only necessary columns</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;bioguide_id&#39;</span><span class="p">,</span> <span class="s1">&#39;attack_personal&#39;</span><span class="p">,</span> <span class="s1">&#39;outcome_bipartisanship&#39;</span><span class="p">,</span> <span class="s1">&#39;policy&#39;</span><span class="p">,</span> <span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># Count total number of communications per legislator</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;communication_count&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;bioguide_id&#39;</span><span class="p">)[</span><span class="s1">&#39;bioguide_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Create full_name column from first and last name</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;full_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;last_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+    <span class="c1"># Aggregate total flags by legislator</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;bioguide_id&#39;</span><span class="p">,</span> <span class="s1">&#39;full_name&#39;</span><span class="p">,</span> <span class="s1">&#39;communication_count&#39;</span><span class="p">],</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span>
+        <span class="s1">&#39;attack_personal&#39;</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;outcome_bipartisanship&#39;</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;policy&#39;</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span>
+    <span class="p">})</span>
+
+    <span class="c1"># Compute percentage-based indicators</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;attack_personal_pct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;attack_personal&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;communication_count&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;outcome_bipartisanship_pct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;outcome_bipartisanship&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;communication_count&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;policy_pct&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;policy&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;communication_count&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">100</span>
+
+    <span class="k">return</span> <span class="n">df</span>
+
+
+<span class="c1"># Clean and sort APP communication dataset for year 2025</span>
+<span class="n">df_comm_app_2025</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">clean_communications_app</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;bioguide_id&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Export csv</span>
+<span class="n">df_comm_app_2025</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bioguide_id</th>
+      <th>full_name</th>
+      <th>communication_count</th>
+      <th>attack_personal</th>
+      <th>outcome_bipartisanship</th>
+      <th>policy</th>
+      <th>attack_personal_pct</th>
+      <th>outcome_bipartisanship_pct</th>
+      <th>policy_pct</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>A000055</td>
+      <td>Robert Aderholt</td>
+      <td>256</td>
+      <td>3.0</td>
+      <td>10.0</td>
+      <td>148.0</td>
+      <td>1.171875</td>
+      <td>3.906250</td>
+      <td>57.812500</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>A000148</td>
+      <td>Jake Auchincloss</td>
+      <td>903</td>
+      <td>76.0</td>
+      <td>99.0</td>
+      <td>647.0</td>
+      <td>8.416390</td>
+      <td>10.963455</td>
+      <td>71.650055</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>A000369</td>
+      <td>Mark Amodei</td>
+      <td>288</td>
+      <td>1.0</td>
+      <td>20.0</td>
+      <td>200.0</td>
+      <td>0.347222</td>
+      <td>6.944444</td>
+      <td>69.444444</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>A000370</td>
+      <td>Alma Adams</td>
+      <td>285</td>
+      <td>3.0</td>
+      <td>12.0</td>
+      <td>171.0</td>
+      <td>1.052632</td>
+      <td>4.210526</td>
+      <td>60.000000</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>A000371</td>
+      <td>Pete Aguilar</td>
+      <td>123</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>80.0</td>
+      <td>3.252033</td>
+      <td>2.439024</td>
+      <td>65.040650</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>A000372</td>
+      <td>Rick Allen</td>
+      <td>657</td>
+      <td>1.0</td>
+      <td>34.0</td>
+      <td>399.0</td>
+      <td>0.152207</td>
+      <td>5.175038</td>
+      <td>60.730594</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>A000375</td>
+      <td>Jodey Arrington</td>
+      <td>963</td>
+      <td>13.0</td>
+      <td>40.0</td>
+      <td>600.0</td>
+      <td>1.349948</td>
+      <td>4.153686</td>
+      <td>62.305296</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>A000379</td>
+      <td>Mark Alford</td>
+      <td>1493</td>
+      <td>12.0</td>
+      <td>76.0</td>
+      <td>659.0</td>
+      <td>0.803751</td>
+      <td>5.090422</td>
+      <td>44.139317</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>A000380</td>
+      <td>Gabe Amo</td>
+      <td>937</td>
+      <td>52.0</td>
+      <td>56.0</td>
+      <td>642.0</td>
+      <td>5.549626</td>
+      <td>5.976521</td>
+      <td>68.516542</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>A000381</td>
+      <td>Yassamin Ansari</td>
+      <td>246</td>
+      <td>10.0</td>
+      <td>6.0</td>
+      <td>133.0</td>
+      <td>4.065041</td>
+      <td>2.439024</td>
+      <td>54.065041</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>A000382</td>
+      <td>Angela Alsobrooks</td>
+      <td>356</td>
+      <td>23.0</td>
+      <td>23.0</td>
+      <td>168.0</td>
+      <td>6.460674</td>
+      <td>6.460674</td>
+      <td>47.191011</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>B000490</td>
+      <td>Sanford Bishop</td>
+      <td>430</td>
+      <td>1.0</td>
+      <td>22.0</td>
+      <td>142.0</td>
+      <td>0.232558</td>
+      <td>5.116279</td>
+      <td>33.023256</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>B000668</td>
+      <td>Cliff Bentz</td>
+      <td>229</td>
+      <td>2.0</td>
+      <td>7.0</td>
+      <td>152.0</td>
+      <td>0.873362</td>
+      <td>3.056769</td>
+      <td>66.375546</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>B000740</td>
+      <td>Stephanie Bice</td>
+      <td>602</td>
+      <td>2.0</td>
+      <td>41.0</td>
+      <td>370.0</td>
+      <td>0.332226</td>
+      <td>6.810631</td>
+      <td>61.461794</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>B000825</td>
+      <td>Lauren Boebert</td>
+      <td>455</td>
+      <td>10.0</td>
+      <td>27.0</td>
+      <td>278.0</td>
+      <td>2.197802</td>
+      <td>5.934066</td>
+      <td>61.098901</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>B001230</td>
+      <td>Tammy Baldwin</td>
+      <td>1258</td>
+      <td>48.0</td>
+      <td>100.0</td>
+      <td>903.0</td>
+      <td>3.815580</td>
+      <td>7.949126</td>
+      <td>71.780604</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>B001236</td>
+      <td>John Boozman</td>
+      <td>824</td>
+      <td>1.0</td>
+      <td>103.0</td>
+      <td>566.0</td>
+      <td>0.121359</td>
+      <td>12.500000</td>
+      <td>68.689320</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>B001243</td>
+      <td>Marsha Blackburn</td>
+      <td>2331</td>
+      <td>99.0</td>
+      <td>76.0</td>
+      <td>1405.0</td>
+      <td>4.247104</td>
+      <td>3.260403</td>
+      <td>60.274560</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>B001257</td>
+      <td>Gus Bilirakis</td>
+      <td>1744</td>
+      <td>6.0</td>
+      <td>94.0</td>
+      <td>862.0</td>
+      <td>0.344037</td>
+      <td>5.389908</td>
+      <td>49.426606</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>B001260</td>
+      <td>Vern Buchanan</td>
+      <td>733</td>
+      <td>8.0</td>
+      <td>61.0</td>
+      <td>577.0</td>
+      <td>1.091405</td>
+      <td>8.321965</td>
+      <td>78.717599</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save to csv</span>
+<span class="n">df_comm_app_2025</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;../Data/Source C-D-E-F/Output files/bridge_grades_source_cdef_app_communication.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check that all legislators are present</span>
+<span class="n">df_comm_app_2025</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>537
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Source%20A-B.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><strong>Source A-B: Legislator and Sponsorship Data Processing</strong></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Source%20M.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Source M: Cook Political Partisan Voting Index (PVI) Processing</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Source C-D-E-F: App Communications Calculations Data Processing</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources"><strong>Data Sources</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-files"><strong>Input Files</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-source-details"><strong>Data Source Details</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outputs"><strong>Outputs</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-c-bipartisan-communication-sum"><strong>Source C: Bipartisan Communication Sum</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-d-bipartisan-communication-percentage"><strong>Source D: Bipartisan Communication Percentage</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-e-personal-attack-sum"><strong>Source E: Personal Attack Sum</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-f-personal-attack-percentage"><strong>Source F: Personal Attack Percentage</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complete-output-dataset"><strong>Complete Output Dataset</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-requirements"><strong>Technical Requirements</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies"><strong>Dependencies</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-notes"><strong>Performance Notes</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality"><strong>Data Quality</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-integrity-notes"><strong>Data Integrity Notes</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-metrics"><strong>Key Metrics</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-walkthrough-preprocessing-for-bridge-grades-app-communications-calculations-data"><strong>Notebook Walkthrough: Preprocessing for Bridge Grades: App Communications Calculations Data</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bipartisanship-processing"><strong>Bipartisanship processing</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-and-aggregation-of-app-communication-data"><strong>Processing and Aggregation of APP Communication Data</strong></a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bridge Grades Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
