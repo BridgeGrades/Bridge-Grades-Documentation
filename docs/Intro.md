@@ -96,6 +96,6 @@ This documentation website will walk you through exactly how Bridge Grades are c
 ```
 
 ```{note}
-**Official Website**: Learn more at [bridgepledge.org](https://www.bridgepledge.org/)
+**Official Website**: Learn more at [bridgepledge.org](https://www.bridgegrades.org/)
 ```
 
