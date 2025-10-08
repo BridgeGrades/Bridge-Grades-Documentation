@@ -1,0 +1,1182 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Source N: VoteView Member Ideology Scores Processing &#8212; Bridge Grades Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Source N';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Bridge Pledge Score Computation" href="Bridge_Grades_Calculation.html" />
+    <link rel="prev" title="Source M: Cook Political Partisan Voting Index (PVI) Processing" href="Source%20M.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/BRIDGE_GRADES_LOGO.png" class="logo__image only-light" alt="Bridge Grades Documentation - Home"/>
+    <script>document.write(`<img src="_static/BRIDGE_GRADES_LOGO.png" class="logo__image only-dark" alt="Bridge Grades Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Project%20Explanation.html"><strong>About Bridge Grades Project</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sources%20of%20Information.html"><strong>Bridge Grades Data Sources</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Current_Legislators/get_current_members.html"><strong>Current Legislators Data Collection: Congress.gov API</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Current_Legislators/get_legislator_info_plural.html"><strong>Plural Policy Legislator Data Processing</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Source%20A-B.html"><strong>Source A-B: Legislator and Sponsorship Data Processing</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Source%20C-D-E-F.html"><strong>Source C-D-E-F: App Communications Calculations Data Processing</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Source%20M.html"><strong>Source M: Cook Political Partisan Voting Index (PVI) Processing</strong></a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Source N: VoteView Member Ideology Scores Processing</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Bridge_Grades_Calculation.html"><strong>Bridge Pledge Score Computation</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Suggested_Weights.html"><strong>Suggested Weights for Bridge Grades System</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Next%20Steps.html"><strong>Next Steps</strong></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSource N.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Source N.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Source N: VoteView Member Ideology Scores Processing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Source N: VoteView Member Ideology Scores Processing</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources"><strong>Data Sources</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-files"><strong>Input Files</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-source-details"><strong>Data Source Details</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outputs"><strong>Outputs</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-n-house-ideology"><strong>Source N: House Ideology</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-n-senate-ideology"><strong>Source N: Senate Ideology</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-requirements"><strong>Technical Requirements</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies"><strong>Dependencies</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-notes"><strong>Performance Notes</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality"><strong>Data Quality</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-integrity-notes"><strong>Data Integrity Notes</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features"><strong>Key Features</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ideology-score-interpretation"><strong>Ideology Score Interpretation</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-walkthrough-source-n-voteview-member-ideology-scores"><strong>Notebook Walkthrough: Source N - VoteView Member Ideology Scores</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-inspect-raw-ideology-data"><strong>Load &amp; Inspect Raw Ideology Data</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-take-absolute-value-from-the-raw-scores"><strong>Clean &amp; take absolute value from the Raw Scores</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-value-missing-value-diagnostics"><strong>Absolute Value &amp; Missing-Value Diagnostics</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fill-missing-scores-drop-originals"><strong>Fill Missing Scores &amp; Drop Originals</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#split-into-house-senate"><strong>Split into House &amp; Senate</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-percentile-scores-export"><strong>Compute Percentile Scores &amp; Export</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#house-percentiles-export"><strong>House Percentiles &amp; Export</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#senate-percentiles-export"><strong>Senate Percentiles &amp; Export</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="source-n-voteview-member-ideology-scores-processing">
+<h1><strong>Source N: VoteView Member Ideology Scores Processing</strong><a class="headerlink" href="#source-n-voteview-member-ideology-scores-processing" title="Link to this heading">#</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Overview</p>
+<p>This notebook processes VoteView Member Ideology scores from the 119th U.S. Congress to generate the <strong>Source N</strong> dataset used in the Bridge Grades methodology to measure ideological distance from the political center.</p>
+<ul class="simple">
+<li><p><strong>Source N:</strong> <em>VoteView Member Ideology Scores</em> - Measures absolute distance from ideological center for both House and Senate</p></li>
+</ul>
+<p>The ideology scores generated here will be merged into the master district-level dataset for final Bridge Grade calculations, providing context for evaluating bipartisan behavior relative to ideological positioning.</p>
+</div>
+<section id="data-sources">
+<h2><strong>Data Sources</strong><a class="headerlink" href="#data-sources" title="Link to this heading">#</a></h2>
+<section id="input-files">
+<h3><strong>Input Files</strong><a class="headerlink" href="#input-files" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">HS119_members.csv</span></code></strong> - VoteView Member Ideology data for 119th Congress</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">119th_Congress_*.csv</span></code></strong> - Congressional metadata with bioguide IDs and chamber assignments</p></li>
+</ul>
+</section>
+<section id="data-source-details">
+<h3><strong>Data Source Details</strong><a class="headerlink" href="#data-source-details" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Source:</strong> <a class="reference external" href="https://voteview.com/data">VoteView</a> (Data Type: Member Ideology; Chamber: Both; Congress: 119th; CSV)</p></li>
+<li><p><strong>Congress:</strong> 119th U.S. Congress</p></li>
+<li><p><strong>Download Date:</strong> August 8, 2025</p></li>
+<li><p><strong>Coverage:</strong> Member ideology scores for all House and Senate members</p></li>
+<li><p><strong>Key Metric:</strong> <code class="docutils literal notranslate"><span class="pre">nominate_dim1</span></code> scores measuring ideological position</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="outputs">
+<h2><strong>Outputs</strong><a class="headerlink" href="#outputs" title="Link to this heading">#</a></h2>
+<section id="source-n-house-ideology">
+<h3><strong>Source N: House Ideology</strong><a class="headerlink" href="#source-n-house-ideology" title="Link to this heading">#</a></h3>
+<p><strong>File:</strong> <code class="docutils literal notranslate"><span class="pre">bridge_grade_source_n_house_ideology.csv</span></code></p>
+<p><strong>Columns:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Name</span></code>: Legislator’s full name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bioguide_id</span></code>: Unique legislator identifier</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ideology_dist</span></code>: Absolute distance from ideological center (raw score)</p></li>
+</ul>
+<p><strong>Interpretation:</strong> Higher distance values indicate legislators further from the political center. Higher percentiles indicate legislators who are more ideologically extreme relative to their House colleagues.</p>
+</section>
+<section id="source-n-senate-ideology">
+<h3><strong>Source N: Senate Ideology</strong><a class="headerlink" href="#source-n-senate-ideology" title="Link to this heading">#</a></h3>
+<p><strong>File:</strong> <code class="docutils literal notranslate"><span class="pre">bridge_grade_source_n_senate_ideology.csv</span></code></p>
+<p><strong>Columns:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Name</span></code>: Senator’s full name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bioguide_id</span></code>: Unique legislator identifier</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ideology_dist</span></code>: Absolute distance from ideological center (raw score)</p></li>
+</ul>
+<p><strong>Interpretation:</strong> Higher distance values indicate senators further from the political center. Higher percentiles indicate senators who are more ideologically extreme relative to their Senate colleagues.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="technical-requirements">
+<h2><strong>Technical Requirements</strong><a class="headerlink" href="#technical-requirements" title="Link to this heading">#</a></h2>
+<section id="dependencies">
+<h3><strong>Dependencies</strong><a class="headerlink" href="#dependencies" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code>: Data manipulation and analysis</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>: Numerical operations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>: Statistical functions for normal CDF calculations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">warnings</span></code>: Warning suppression for pandas operations</p></li>
+</ul>
+</section>
+<section id="performance-notes">
+<h3><strong>Performance Notes</strong><a class="headerlink" href="#performance-notes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Absolute value transformation ensures non-negative ideology distance scores</p></li>
+<li><p>Chamber-specific percentile calculations account for different ideological distributions</p></li>
+<li><p>Missing value imputation preserves data completeness</p></li>
+<li><p>Normal CDF provides standardized percentile rankings</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="data-quality">
+<h2><strong>Data Quality</strong><a class="headerlink" href="#data-quality" title="Link to this heading">#</a></h2>
+<section id="data-integrity-notes">
+<h3><strong>Data Integrity Notes</strong><a class="headerlink" href="#data-integrity-notes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>VoteView ideology scores are based on roll-call voting patterns</p></li>
+<li><p>Absolute distance transformation removes directional bias</p></li>
+<li><p>Missing value imputation with global mean maintains data completeness</p></li>
+<li><p>Chamber-specific percentiles ensure fair comparison within each body</p></li>
+</ul>
+</section>
+<section id="key-features">
+<h3><strong>Key Features</strong><a class="headerlink" href="#key-features" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>House Coverage:</strong> All 431 House members with ideology scores</p></li>
+<li><p><strong>Senate Coverage:</strong> All 100 Senate members with ideology scores</p></li>
+<li><p><strong>Standardized Format:</strong> Consistent output structure for both chambers</p></li>
+</ul>
+</section>
+<section id="ideology-score-interpretation">
+<h3><strong>Ideology Score Interpretation</strong><a class="headerlink" href="#ideology-score-interpretation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Raw Scores:</strong> Range from 0 (centrist) to 1 (extremely ideological)</p></li>
+<li><p><strong>Absolute Distance:</strong> Measures how far from center regardless of left/right direction</p></li>
+<li><p><strong>Percentiles:</strong> Rank legislators within their chamber (0-100 scale)</p></li>
+<li><p><strong>Higher Values:</strong> Indicate more ideologically extreme positions</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="notebook-walkthrough-source-n-voteview-member-ideology-scores">
+<h1><strong>Notebook Walkthrough: Source N - VoteView Member Ideology Scores</strong><a class="headerlink" href="#notebook-walkthrough-source-n-voteview-member-ideology-scores" title="Link to this heading">#</a></h1>
+<p>This notebook prepares the <strong>Member Ideology</strong> scores downloaded from VoteView for use in Bridge Grades. We:</p>
+<ul class="simple">
+<li><p>Download the <strong>HS119_members.csv</strong> file from VoteView (Data Type: Member Ideology; Chamber: Both; Congress: 119th; CSV)</p>
+<ul>
+<li><p>URL: <a class="reference external" href="https://voteview.com/data">https://voteview.com/data</a></p></li>
+<li><p><strong>Date downloaded:</strong> August 8, 2025</p></li>
+</ul>
+</li>
+<li><p>Clean and normalize the raw <code class="docutils literal notranslate"><span class="pre">nominate_dim1</span></code> scores (absolute distance from ideological center).</p></li>
+<li><p>Split into <strong>House</strong> and <strong>Senate</strong> subsets, merge into our district/member metadata, and compute percentile scores.</p></li>
+<li><p>Export two CSVs:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">bridge_grade_source_n_house_ideology.csv</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bridge_grade_source_n_senate_ideology.csv</span></code></p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">pandas.errors</span> <span class="kn">import</span> <span class="n">SettingWithCopyWarning</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">SettingWithCopyWarning</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="load-inspect-raw-ideology-data">
+<h2><strong>Load &amp; Inspect Raw Ideology Data</strong><a class="headerlink" href="#load-inspect-raw-ideology-data" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load VoteView ideology scores for 119th Congress</span>
+<span class="n">ideology</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s1">&#39;../Data/Source N/Input files/HS119_members.csv&#39;</span><span class="p">,</span>
+    <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;bioguide_id&#39;</span><span class="p">,</span><span class="s1">&#39;nominate_dim1&#39;</span><span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Preview</span>
+<span class="n">ideology</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="clean-take-absolute-value-from-the-raw-scores">
+<h2><strong>Clean &amp; take absolute value from the Raw Scores</strong><a class="headerlink" href="#clean-take-absolute-value-from-the-raw-scores" title="Link to this heading">#</a></h2>
+<section id="absolute-value-missing-value-diagnostics">
+<h3><strong>Absolute Value &amp; Missing-Value Diagnostics</strong><a class="headerlink" href="#absolute-value-missing-value-diagnostics" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert to absolute distance from center</span>
+<span class="n">ideology</span><span class="p">[</span><span class="s1">&#39;N_dim1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ideology</span><span class="p">[</span><span class="s1">&#39;nominate_dim1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
+
+<span class="c1"># Report missing bioguide_id or score</span>
+<span class="n">missing_biog</span> <span class="o">=</span> <span class="n">ideology</span><span class="p">[</span><span class="s1">&#39;bioguide_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">missing_score</span> <span class="o">=</span> <span class="n">ideology</span><span class="p">[</span><span class="s1">&#39;N_dim1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Missing bioguide_id: </span><span class="si">{</span><span class="n">missing_biog</span><span class="si">}</span><span class="s2">, Missing scores: </span><span class="si">{</span><span class="n">missing_score</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Missing bioguide_id: 0, Missing scores: 2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ideology</span><span class="p">[</span><span class="n">ideology</span><span class="p">[</span><span class="s1">&#39;N_dim1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span> <span class="c1"># The two missing legislators are actually two non-voting members from territories who will not be added to the final score.</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bioguide_id</th>
+      <th>nominate_dim1</th>
+      <th>N_dim1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>302</th>
+      <td>K000404</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>346</th>
+      <td>H001103</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="fill-missing-scores-drop-originals">
+<h3><strong>Fill Missing Scores &amp; Drop Originals</strong><a class="headerlink" href="#fill-missing-scores-drop-originals" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Because these two missing people are non-voting members, we will remove the two rows from the dataframe</span>
+<span class="n">ideology</span> <span class="o">=</span> <span class="n">ideology</span><span class="p">[</span><span class="n">ideology</span><span class="p">[</span><span class="s1">&#39;bioguide_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">notna</span><span class="p">()]</span>
+
+<span class="c1"># rename the column N_dim 1 to ideology_dist</span>
+<span class="c1"># Rename for clarity</span>
+<span class="n">ideology</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;N_dim1&#39;</span><span class="p">:</span><span class="s1">&#39;ideology_dist&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="split-into-house-senate">
+<h2><strong>Split into House &amp; Senate</strong><a class="headerlink" href="#split-into-house-senate" title="Link to this heading">#</a></h2>
+<p>We will merge into our master metadata later; for now we separate to compute percentile scores per chamber.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in the 119th Congress data with bioguide ids</span>
+<span class="n">files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;../Data/Source C-D-E-F/Input files/119th_Congress_*.csv&quot;</span><span class="p">))</span>
+<span class="n">latest</span> <span class="o">=</span> <span class="n">files</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">df_119</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">latest</span><span class="p">)</span>
+<span class="n">df_bioguide</span> <span class="o">=</span> <span class="n">df_119</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">df_bioguide</span> <span class="o">=</span> <span class="n">df_bioguide</span><span class="p">[[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span><span class="s1">&#39;bioguide_id&#39;</span><span class="p">,</span><span class="s1">&#39;Chamber&#39;</span><span class="p">]]</span>
+<span class="n">df_bioguide</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>bioguide_id</th>
+      <th>Chamber</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mark B. Messmer</td>
+      <td>M001233</td>
+      <td>House</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Delia C. Ramirez</td>
+      <td>R000617</td>
+      <td>House</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Tim Sheehy</td>
+      <td>S001232</td>
+      <td>Senate</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Ben Ray Luján</td>
+      <td>L000570</td>
+      <td>Senate</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Josh Hawley</td>
+      <td>H001089</td>
+      <td>Senate</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Merge chamber info onto ideology</span>
+<span class="n">ideology</span> <span class="o">=</span> <span class="n">ideology</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_bioguide</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;bioguide_id&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+
+<span class="c1"># Split sets</span>
+<span class="n">ideo_house</span>  <span class="o">=</span> <span class="n">ideology</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Chamber==&#39;House&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">ideo_senate</span> <span class="o">=</span> <span class="n">ideology</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Chamber==&#39;Senate&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="compute-percentile-scores-export">
+<h2><strong>Compute Percentile Scores &amp; Export</strong><a class="headerlink" href="#compute-percentile-scores-export" title="Link to this heading">#</a></h2>
+<section id="house-percentiles-export">
+<h3><strong>House Percentiles &amp; Export</strong><a class="headerlink" href="#house-percentiles-export" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Deduplicate if needed</span>
+<span class="n">ideo_house</span> <span class="o">=</span> <span class="n">ideo_house</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;bioguide_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># Select and save</span>
+<span class="n">house_out</span> <span class="o">=</span> <span class="n">ideo_house</span><span class="p">[[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span><span class="s1">&#39;bioguide_id&#39;</span><span class="p">,</span><span class="s1">&#39;nominate_dim1&#39;</span><span class="p">,</span><span class="s1">&#39;ideology_dist&#39;</span><span class="p">]]</span>
+<span class="n">house_out</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
+    <span class="s1">&#39;../Data/Source N/Output files/bridge_grade_source_n_house_ideology.csv&#39;</span><span class="p">,</span>
+    <span class="n">index</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">house_out</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>bioguide_id</th>
+      <th>nominate_dim1</th>
+      <th>ideology_dist</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mike D. Rogers</td>
+      <td>R000575</td>
+      <td>0.379</td>
+      <td>0.379</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Terri A. Sewell</td>
+      <td>S001185</td>
+      <td>-0.400</td>
+      <td>0.400</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Gary J. Palmer</td>
+      <td>P000609</td>
+      <td>0.675</td>
+      <td>0.675</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Barry Moore</td>
+      <td>M001212</td>
+      <td>0.645</td>
+      <td>0.645</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Dale W. Strong</td>
+      <td>S001220</td>
+      <td>0.615</td>
+      <td>0.615</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Shomari Figures</td>
+      <td>F000481</td>
+      <td>-0.369</td>
+      <td>0.369</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Robert B. Aderholt</td>
+      <td>A000055</td>
+      <td>0.405</td>
+      <td>0.405</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Nicholas J. Begich</td>
+      <td>B001323</td>
+      <td>0.612</td>
+      <td>0.612</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Paul A. Gosar</td>
+      <td>G000565</td>
+      <td>0.703</td>
+      <td>0.703</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>David Schweikert</td>
+      <td>S001183</td>
+      <td>0.553</td>
+      <td>0.553</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="senate-percentiles-export">
+<h3><strong>Senate Percentiles &amp; Export</strong><a class="headerlink" href="#senate-percentiles-export" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Deduplicate</span>
+<span class="n">ideo_senate</span> <span class="o">=</span> <span class="n">ideo_senate</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;bioguide_id&#39;</span><span class="p">)</span>
+
+<span class="c1"># Select and save</span>
+<span class="n">senate_out</span> <span class="o">=</span> <span class="n">ideo_senate</span><span class="p">[[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span><span class="s1">&#39;bioguide_id&#39;</span><span class="p">,</span><span class="s1">&#39;nominate_dim1&#39;</span><span class="p">,</span><span class="s1">&#39;ideology_dist&#39;</span><span class="p">]]</span>
+<span class="n">senate_out</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
+    <span class="s1">&#39;../Data/Source N/Output files/bridge_grade_source_n_senate_ideology.csv&#39;</span><span class="p">,</span>
+    <span class="n">index</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">senate_out</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>bioguide_id</th>
+      <th>nominate_dim1</th>
+      <th>ideology_dist</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>442</th>
+      <td>Tommy Tuberville</td>
+      <td>T000278</td>
+      <td>0.936</td>
+      <td>0.936</td>
+    </tr>
+    <tr>
+      <th>443</th>
+      <td>Katie Boyd Britt</td>
+      <td>B001319</td>
+      <td>0.585</td>
+      <td>0.585</td>
+    </tr>
+    <tr>
+      <th>444</th>
+      <td>Lisa Murkowski</td>
+      <td>M001153</td>
+      <td>0.204</td>
+      <td>0.204</td>
+    </tr>
+    <tr>
+      <th>445</th>
+      <td>Dan Sullivan</td>
+      <td>S001198</td>
+      <td>0.476</td>
+      <td>0.476</td>
+    </tr>
+    <tr>
+      <th>446</th>
+      <td>Ruben Gallego</td>
+      <td>G000574</td>
+      <td>-0.359</td>
+      <td>0.359</td>
+    </tr>
+    <tr>
+      <th>447</th>
+      <td>Mark Kelly</td>
+      <td>K000377</td>
+      <td>-0.257</td>
+      <td>0.257</td>
+    </tr>
+    <tr>
+      <th>448</th>
+      <td>John Boozman</td>
+      <td>B001236</td>
+      <td>0.427</td>
+      <td>0.427</td>
+    </tr>
+    <tr>
+      <th>449</th>
+      <td>Tom Cotton</td>
+      <td>C001095</td>
+      <td>0.580</td>
+      <td>0.580</td>
+    </tr>
+    <tr>
+      <th>450</th>
+      <td>Adam B. Schiff</td>
+      <td>S001150</td>
+      <td>-0.353</td>
+      <td>0.353</td>
+    </tr>
+    <tr>
+      <th>451</th>
+      <td>Alex Padilla</td>
+      <td>P000145</td>
+      <td>-0.422</td>
+      <td>0.422</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Source%20M.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><strong>Source M: Cook Political Partisan Voting Index (PVI) Processing</strong></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Bridge_Grades_Calculation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Bridge Pledge Score Computation</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Source N: VoteView Member Ideology Scores Processing</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources"><strong>Data Sources</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-files"><strong>Input Files</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-source-details"><strong>Data Source Details</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outputs"><strong>Outputs</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-n-house-ideology"><strong>Source N: House Ideology</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-n-senate-ideology"><strong>Source N: Senate Ideology</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-requirements"><strong>Technical Requirements</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies"><strong>Dependencies</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-notes"><strong>Performance Notes</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality"><strong>Data Quality</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-integrity-notes"><strong>Data Integrity Notes</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features"><strong>Key Features</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ideology-score-interpretation"><strong>Ideology Score Interpretation</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-walkthrough-source-n-voteview-member-ideology-scores"><strong>Notebook Walkthrough: Source N - VoteView Member Ideology Scores</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-inspect-raw-ideology-data"><strong>Load &amp; Inspect Raw Ideology Data</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-take-absolute-value-from-the-raw-scores"><strong>Clean &amp; take absolute value from the Raw Scores</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-value-missing-value-diagnostics"><strong>Absolute Value &amp; Missing-Value Diagnostics</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fill-missing-scores-drop-originals"><strong>Fill Missing Scores &amp; Drop Originals</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#split-into-house-senate"><strong>Split into House &amp; Senate</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-percentile-scores-export"><strong>Compute Percentile Scores &amp; Export</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#house-percentiles-export"><strong>House Percentiles &amp; Export</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#senate-percentiles-export"><strong>Senate Percentiles &amp; Export</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bridge Grades Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1279 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Plural Policy Legislator Data Processing &#8212; Bridge Grades Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Current_Legislators/get_legislator_info_plural';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Source A-B: Legislator and Sponsorship Data Processing" href="../Source%20A-B.html" />
+    <link rel="prev" title="Current Legislators Data Collection: Congress.gov API" href="get_current_members.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../Intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/BRIDGE_GRADES_LOGO.png" class="logo__image only-light" alt="Bridge Grades Documentation - Home"/>
+    <script>document.write(`<img src="../_static/BRIDGE_GRADES_LOGO.png" class="logo__image only-dark" alt="Bridge Grades Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../Intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../Project%20Explanation.html"><strong>About Bridge Grades Project</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Sources%20of%20Information.html"><strong>Bridge Grades Data Sources</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="get_current_members.html"><strong>Current Legislators Data Collection: Congress.gov API</strong></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Plural Policy Legislator Data Processing</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Source%20A-B.html"><strong>Source A-B: Legislator and Sponsorship Data Processing</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Source%20C-D-E-F.html"><strong>Source C-D-E-F: App Communications Calculations Data Processing</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Source%20M.html"><strong>Source M: Cook Political Partisan Voting Index (PVI) Processing</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Source%20N.html"><strong>Source N: VoteView Member Ideology Scores Processing</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../Bridge_Grades_Calculation.html"><strong>Bridge Pledge Score Computation</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Suggested_Weights.html"><strong>Suggested Weights for Bridge Grades System</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Next%20Steps.html"><strong>Next Steps</strong></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FCurrent_Legislators/get_legislator_info_plural.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Current_Legislators/get_legislator_info_plural.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Plural Policy Legislator Data Processing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources"><strong>Data Sources</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-files"><strong>Input Files</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-source-details"><strong>Data Source Details</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outputs"><strong>Outputs</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#current-legislators-dataset"><strong>Current Legislators Dataset</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retired-legislators-dataset"><strong>Retired Legislators Dataset</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-requirements"><strong>Technical Requirements</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies"><strong>Dependencies</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing-notes"><strong>Data Processing Notes</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing-pipeline"><strong>Data Processing Pipeline</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-repository-data-collection"><strong>Step 1: Repository Data Collection</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-yaml-processing"><strong>Step 2: YAML Processing</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-data-normalization"><strong>Step 3: Data Normalization</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-output-generation"><strong>Step 4: Output Generation</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-in-bridge-grades-pipeline"><strong>Usage in Bridge Grades Pipeline</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-walkthrough-plural-policy-legislator-data-processing"><strong>Notebook Walkthrough: Plural Policy Legislator Data Processing</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-access-and-file-discovery"><strong>Repository Access and File Discovery</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-structure"><strong>Repository Structure</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yaml-processing-and-data-extraction"><strong>YAML Processing and Data Extraction</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-strategy"><strong>Processing Strategy</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-data-fields"><strong>Key Data Fields</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-validation-and-quality-assurance"><strong>Data Validation and Quality Assurance</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-steps"><strong>Validation Steps</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-export-and-finalization"><strong>Dataset Export and Finalization</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#export-process"><strong>Export Process</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output-files"><strong>Output Files</strong></a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="plural-policy-legislator-data-processing">
+<h1><strong>Plural Policy Legislator Data Processing</strong><a class="headerlink" href="#plural-policy-legislator-data-processing" title="Link to this heading">#</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Overview</p>
+<p>This notebook processes legislator biographical data from the Plural Policy (OpenStates) repository to create comprehensive legislator datasets with bioguide_id mappings. This data serves as a critical reference for matching legislators across different data sources in the Bridge Grades methodology.</p>
+<p>The notebook generates two key datasets:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">plural_legislators_with_bioguide.csv</span></code> - Current legislators with bioguide_id mappings</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">plural_legislators_retired_with_bioguide.csv</span></code> - Historical legislators with bioguide_id mappings</p></li>
+</ul>
+<p>These datasets enable accurate legislator identification when processing bill sponsorship data from Plural Policy sources.</p>
+</div>
+<section id="data-sources">
+<h2><strong>Data Sources</strong><a class="headerlink" href="#data-sources" title="Link to this heading">#</a></h2>
+<section id="input-files">
+<h3><strong>Input Files</strong><a class="headerlink" href="#input-files" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>OpenStates People Repository</strong> - YAML files containing legislator biographical data</p></li>
+<li><p><strong>Repository:</strong> <a class="github reference external" href="https://github.com/openstates/people.git">openstates/people.git</a></p></li>
+<li><p><strong>Data Format:</strong> Individual YAML files per legislator</p></li>
+</ul>
+</section>
+<section id="data-source-details">
+<h3><strong>Data Source Details</strong><a class="headerlink" href="#data-source-details" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Source:</strong> <a class="reference external" href="https://github.com/openstates/people.git">OpenStates People Repository</a></p></li>
+<li><p><strong>Congress:</strong> Historical and current legislators</p></li>
+<li><p><strong>Collection Date:</strong> August 8, 2025</p></li>
+<li><p><strong>Coverage:</strong> Comprehensive legislator database with multiple identifier schemes</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="outputs">
+<h2><strong>Outputs</strong><a class="headerlink" href="#outputs" title="Link to this heading">#</a></h2>
+<section id="current-legislators-dataset">
+<h3><strong>Current Legislators Dataset</strong><a class="headerlink" href="#current-legislators-dataset" title="Link to this heading">#</a></h3>
+<p><strong>File:</strong> <code class="docutils literal notranslate"><span class="pre">plural_legislators_with_bioguide.csv</span></code></p>
+<p><strong>Columns:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: OpenStates unique identifier</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: Full name of the legislator</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">given_name</span></code>: First name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">family_name</span></code>: Last name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">birth_date</span></code>: Date of birth</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gender</span></code>: Gender information</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">email</span></code>: Contact email</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">image</span></code>: Profile image URL</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">party</span></code>: Political party affiliation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">role_type</span></code>: upper (Senate) or lower (House)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">district</span></code>: Congressional district</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">role_start_date</span></code>: Term start date</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">role_end_date</span></code>: Term end date</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bioguide_id</span></code>: Congressional bioguide identifier (critical for Bridge Grades)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">social_*</span></code>: Social media identifiers</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*_id</span></code>: Various other identifier schemes</p></li>
+</ul>
+</section>
+<section id="retired-legislators-dataset">
+<h3><strong>Retired Legislators Dataset</strong><a class="headerlink" href="#retired-legislators-dataset" title="Link to this heading">#</a></h3>
+<p><strong>File:</strong> <code class="docutils literal notranslate"><span class="pre">plural_legislators_retired_with_bioguide.csv</span></code></p>
+<p><strong>Description:</strong> Historical legislators with same structure as current dataset, enabling matching of historical bill sponsorship data.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="technical-requirements">
+<h2><strong>Technical Requirements</strong><a class="headerlink" href="#technical-requirements" title="Link to this heading">#</a></h2>
+<section id="dependencies">
+<h3><strong>Dependencies</strong><a class="headerlink" href="#dependencies" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code>: Data manipulation and analysis</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">yaml</span></code>: YAML file parsing</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">os</span></code>: File system operations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">collections.defaultdict</span></code>: Efficient data structure handling</p></li>
+</ul>
+</section>
+<section id="data-processing-notes">
+<h3><strong>Data Processing Notes</strong><a class="headerlink" href="#data-processing-notes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>YAML Parsing:</strong> Handles complex nested YAML structures</p></li>
+<li><p><strong>Identifier Extraction:</strong> Processes multiple identifier schemes per legislator</p></li>
+<li><p><strong>Data Normalization:</strong> Standardizes format across all legislator records</p></li>
+<li><p><strong>Missing Value Handling:</strong> Graceful handling of incomplete records</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="data-processing-pipeline">
+<h2><strong>Data Processing Pipeline</strong><a class="headerlink" href="#data-processing-pipeline" title="Link to this heading">#</a></h2>
+<section id="step-1-repository-data-collection">
+<h3><strong>Step 1: Repository Data Collection</strong><a class="headerlink" href="#step-1-repository-data-collection" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Accesses OpenStates people repository</p></li>
+<li><p>Identifies all YAML files containing legislator data</p></li>
+<li><p>Processes each file individually</p></li>
+</ul>
+</section>
+<section id="step-2-yaml-processing">
+<h3><strong>Step 2: YAML Processing</strong><a class="headerlink" href="#step-2-yaml-processing" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Parses complex nested YAML structures</p></li>
+<li><p>Extracts biographical and role information</p></li>
+<li><p>Handles multiple identifier schemes per legislator</p></li>
+</ul>
+</section>
+<section id="step-3-data-normalization">
+<h3><strong>Step 3: Data Normalization</strong><a class="headerlink" href="#step-3-data-normalization" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Standardizes field names and formats</p></li>
+<li><p>Handles missing values appropriately</p></li>
+<li><p>Creates consistent data structure</p></li>
+</ul>
+</section>
+<section id="step-4-output-generation">
+<h3><strong>Step 4: Output Generation</strong><a class="headerlink" href="#step-4-output-generation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Separates current and retired legislators</p></li>
+<li><p>Exports clean datasets to CSV format</p></li>
+<li><p>Validates bioguide_id completeness</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="usage-in-bridge-grades-pipeline">
+<h2><strong>Usage in Bridge Grades Pipeline</strong><a class="headerlink" href="#usage-in-bridge-grades-pipeline" title="Link to this heading">#</a></h2>
+<p>This dataset serves as the <strong>legislator reference</strong> for bill sponsorship processing:</p>
+<ol class="arabic simple">
+<li><p><strong>Source A-B Processing:</strong> Enables bioguide_id matching for bill sponsorship data from Plural Policy</p></li>
+<li><p><strong>Data Quality Assurance:</strong> Provides comprehensive legislator identification for validation</p></li>
+<li><p><strong>Historical Analysis:</strong> Supports analysis of historical collaboration patterns</p></li>
+<li><p><strong>Cross-Reference Validation:</strong> Ensures data consistency across different sources</p></li>
+</ol>
+<p><strong>Critical Role:</strong> Essential for accurate legislator identification when processing bill sponsorship data, as it provides the bioguide_id mappings required to link Plural Policy data with other Bridge Grades sources.</p>
+</section>
+<section id="notebook-walkthrough-plural-policy-legislator-data-processing">
+<h2><strong>Notebook Walkthrough: Plural Policy Legislator Data Processing</strong><a class="headerlink" href="#notebook-walkthrough-plural-policy-legislator-data-processing" title="Link to this heading">#</a></h2>
+<p>This notebook demonstrates the process of extracting and standardizing legislator data from the OpenStates repository to create comprehensive legislator datasets with bioguide_id mappings.</p>
+<p><strong>Key Steps:</strong></p>
+<ol class="arabic simple">
+<li><p><strong>Repository Access:</strong> Load and parse YAML files from OpenStates repository</p></li>
+<li><p><strong>Data Extraction:</strong> Extract biographical and role information from nested YAML structures</p></li>
+<li><p><strong>Identifier Processing:</strong> Handle multiple identifier schemes including bioguide_id</p></li>
+<li><p><strong>Data Standardization:</strong> Create consistent format across all legislator records</p></li>
+<li><p><strong>Output Generation:</strong> Export current and retired legislator datasets</p></li>
+</ol>
+<p><strong>Expected Runtime:</strong> 1-2 minutes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import required libraries</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="c1">#!pip install pyyaml</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="repository-access-and-file-discovery">
+<h2><strong>Repository Access and File Discovery</strong><a class="headerlink" href="#repository-access-and-file-discovery" title="Link to this heading">#</a></h2>
+<p>This section accesses the OpenStates people repository and identifies all YAML files containing legislator data. Each YAML file contains comprehensive biographical information for a single legislator.</p>
+<section id="repository-structure">
+<h3><strong>Repository Structure</strong><a class="headerlink" href="#repository-structure" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Source:</strong> OpenStates people repository (<a class="github reference external" href="https://github.com/openstates/people.git">openstates/people.git</a>)</p></li>
+<li><p><strong>Format:</strong> Individual YAML files per legislator</p></li>
+<li><p><strong>Location:</strong> <code class="docutils literal notranslate"><span class="pre">data/us/legislature/</span></code> directory</p></li>
+<li><p><strong>Coverage:</strong> Current and historical legislators</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Repository Setup</strong>
+Ensure you have cloned the OpenStates people repository locally before running this notebook. The repository contains thousands of YAML files with legislator data.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># clone repository from github at https://github.com/openstates/people.git</span>
+<span class="n">folder_path</span> <span class="o">=</span> <span class="s2">&quot;data/us/legislature&quot;</span>
+<span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">folder_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.yml&quot;</span><span class="p">)]</span>
+<span class="c1"># print the files</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="yaml-processing-and-data-extraction">
+<h2><strong>YAML Processing and Data Extraction</strong><a class="headerlink" href="#yaml-processing-and-data-extraction" title="Link to this heading">#</a></h2>
+<p>This section processes the YAML files to extract legislator information and create a comprehensive dataset. The process handles complex nested YAML structures and multiple identifier schemes.</p>
+<section id="processing-strategy">
+<h3><strong>Processing Strategy</strong><a class="headerlink" href="#processing-strategy" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Two-Pass Processing:</strong> First pass identifies all identifier schemes, second pass extracts data</p></li>
+<li><p><strong>Nested Structure Handling:</strong> Processes complex YAML hierarchies</p></li>
+<li><p><strong>Identifier Extraction:</strong> Handles multiple identifier schemes per legislator</p></li>
+<li><p><strong>Data Normalization:</strong> Creates consistent structure across all records</p></li>
+</ol>
+</section>
+<section id="key-data-fields">
+<h3><strong>Key Data Fields</strong><a class="headerlink" href="#key-data-fields" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Basic Information:</strong> Name, birth date, gender, contact information</p></li>
+<li><p><strong>Role Information:</strong> Chamber, district, term dates, party affiliation</p></li>
+<li><p><strong>Identifiers:</strong> bioguide_id, social media IDs, other identifier schemes</p></li>
+<li><p><strong>Metadata:</strong> Image URLs, email addresses, role history</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Memory Considerations</strong>
+Processing thousands of YAML files can be memory-intensive. The two-pass approach helps manage memory usage by first identifying all possible identifier schemes.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert all the yaml files to a dataframe</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># First pass: gather all possible identifier schemes</span>
+<span class="n">all_schemes</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder_path</span><span class="p">,</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">id_obj</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;other_identifiers&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+            <span class="n">all_schemes</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">id_obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;scheme&quot;</span><span class="p">))</span>
+
+<span class="c1"># Now process each file with all identifier columns</span>
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder_path</span><span class="p">,</span> <span class="n">file</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+        <span class="c1"># Prepare default row</span>
+        <span class="n">row</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="c1"># Basic fields</span>
+        <span class="n">row</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">)</span>
+        <span class="n">row</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+        <span class="n">row</span><span class="p">[</span><span class="s2">&quot;given_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;given_name&quot;</span><span class="p">)</span>
+        <span class="n">row</span><span class="p">[</span><span class="s2">&quot;family_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;family_name&quot;</span><span class="p">)</span>
+        <span class="n">row</span><span class="p">[</span><span class="s2">&quot;birth_date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;birth_date&quot;</span><span class="p">)</span>
+        <span class="n">row</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;gender&quot;</span><span class="p">)</span>
+        <span class="n">row</span><span class="p">[</span><span class="s2">&quot;email&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;email&quot;</span><span class="p">)</span>
+        <span class="n">row</span><span class="p">[</span><span class="s2">&quot;image&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">)</span>
+        <span class="n">row</span><span class="p">[</span><span class="s2">&quot;party&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;party&quot;</span><span class="p">,</span> <span class="p">[{}])[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Roles</span>
+        <span class="n">role</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;roles&quot;</span><span class="p">,</span> <span class="p">[{}])[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">row</span><span class="p">[</span><span class="s2">&quot;role_type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">role</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">)</span>
+        <span class="n">row</span><span class="p">[</span><span class="s2">&quot;district&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">role</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;district&quot;</span><span class="p">)</span>
+        <span class="n">row</span><span class="p">[</span><span class="s2">&quot;role_start_date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">role</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;start_date&quot;</span><span class="p">)</span>
+        <span class="n">row</span><span class="p">[</span><span class="s2">&quot;role_end_date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">role</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;end_date&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Social media (if available)</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;ids&quot;</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">row</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;social_</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+
+        <span class="c1"># Other identifiers</span>
+        <span class="k">for</span> <span class="n">id_obj</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;other_identifiers&quot;</span><span class="p">,</span> <span class="p">[]):</span>
+            <span class="n">scheme</span> <span class="o">=</span> <span class="n">id_obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;scheme&quot;</span><span class="p">)</span>
+            <span class="n">identifier</span> <span class="o">=</span> <span class="n">id_obj</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;identifier&quot;</span><span class="p">)</span>
+            <span class="n">row</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">scheme</span><span class="si">}</span><span class="s2">_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">identifier</span>
+
+        <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">row</span><span class="p">)</span>
+
+<span class="c1"># Create DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
+
+<span class="c1"># Fill in missing columns for any scheme not found in every legislator</span>
+<span class="k">for</span> <span class="n">scheme</span> <span class="ow">in</span> <span class="n">all_schemes</span><span class="p">:</span>
+    <span class="n">col_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">scheme</span><span class="si">}</span><span class="s2">_id&quot;</span>
+    <span class="k">if</span> <span class="n">col_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">df</span><span class="p">[</span><span class="n">col_name</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;id&#39;, &#39;name&#39;, &#39;given_name&#39;, &#39;family_name&#39;, &#39;birth_date&#39;, &#39;gender&#39;,
+       &#39;email&#39;, &#39;image&#39;, &#39;party&#39;, &#39;role_type&#39;, &#39;district&#39;, &#39;role_start_date&#39;,
+       &#39;role_end_date&#39;, &#39;social_twitter&#39;, &#39;social_facebook&#39;, &#39;ballotpedia_id&#39;,
+       &#39;bioguide_id&#39;, &#39;fec_id&#39;, &#39;google_entity_id_id&#39;, &#39;govtrack_id&#39;,
+       &#39;house_history_id&#39;, &#39;icpsr_id&#39;, &#39;opensecrets_id&#39;, &#39;pictorial_id&#39;,
+       &#39;thomas_id&#39;, &#39;votesmart_id&#39;, &#39;wikidata_id&#39;, &#39;wikipedia_id&#39;,
+       &#39;social_youtube&#39;, &#39;cspan_id&#39;, &#39;maplight_id&#39;, &#39;lis_id&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="data-validation-and-quality-assurance">
+<h2><strong>Data Validation and Quality Assurance</strong><a class="headerlink" href="#data-validation-and-quality-assurance" title="Link to this heading">#</a></h2>
+<p>This section validates the processed data to ensure completeness and quality. We check for missing bioguide_id values and verify data integrity.</p>
+<section id="validation-steps">
+<h3><strong>Validation Steps</strong><a class="headerlink" href="#validation-steps" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Missing Value Check:</strong> Identify records without bioguide_id</p></li>
+<li><p><strong>Data Completeness:</strong> Verify all expected fields are present</p></li>
+<li><p><strong>Identifier Validation:</strong> Ensure bioguide_id format consistency</p></li>
+<li><p><strong>Record Count Verification:</strong> Confirm expected number of legislators</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>bioguide_id Importance</strong>
+The bioguide_id is the critical identifier that links this dataset with bill sponsorship data from Plural Policy. Records without bioguide_id cannot be used in the Bridge Grades pipeline.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+      <th>given_name</th>
+      <th>family_name</th>
+      <th>birth_date</th>
+      <th>gender</th>
+      <th>email</th>
+      <th>image</th>
+      <th>party</th>
+      <th>role_type</th>
+      <th>...</th>
+      <th>opensecrets_id</th>
+      <th>pictorial_id</th>
+      <th>thomas_id</th>
+      <th>votesmart_id</th>
+      <th>wikidata_id</th>
+      <th>wikipedia_id</th>
+      <th>social_youtube</th>
+      <th>cspan_id</th>
+      <th>maplight_id</th>
+      <th>lis_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ocd-person/79575558-ef44-5bb5-9c64-3d3fe3fb4427</td>
+      <td>Kweisi Mfume</td>
+      <td>Kweisi</td>
+      <td>Mfume</td>
+      <td>1948-10-24</td>
+      <td>Male</td>
+      <td>https://mfume.house.gov/address_authentication...</td>
+      <td>https://unitedstates.github.io/images/congress...</td>
+      <td>Democratic</td>
+      <td>lower</td>
+      <td>...</td>
+      <td>N00001799</td>
+      <td>13090</td>
+      <td>00798</td>
+      <td>26892</td>
+      <td>Q519504</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ocd-person/9db37a87-2ba9-56a0-9b42-89697222e044</td>
+      <td>Carlos Giménez</td>
+      <td>Carlos</td>
+      <td>Giménez</td>
+      <td>1954-01-17</td>
+      <td>Male</td>
+      <td>https://gimenez.house.gov/contact</td>
+      <td>https://unitedstates.github.io/images/congress...</td>
+      <td>Republican</td>
+      <td>lower</td>
+      <td>...</td>
+      <td>N00046394</td>
+      <td>13009</td>
+      <td>NaN</td>
+      <td>81366</td>
+      <td>Q5041653</td>
+      <td>Carlos A. Giménez</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ocd-person/84a22f15-cf83-5f0b-a048-a6fc50aa60fe</td>
+      <td>Chris Smith</td>
+      <td>Chris</td>
+      <td>Smith</td>
+      <td>1953-03-04</td>
+      <td>Male</td>
+      <td>https://chrissmith.house.gov/contact/zipauth.htm</td>
+      <td>https://unitedstates.github.io/images/congress...</td>
+      <td>Republican</td>
+      <td>lower</td>
+      <td>...</td>
+      <td>N00009816</td>
+      <td>13153</td>
+      <td>01071</td>
+      <td>26952</td>
+      <td>Q981167</td>
+      <td>Chris Smith (New Jersey politician)</td>
+      <td>UCtCNUDo3-I1gsd_03ppDfZg</td>
+      <td>6411</td>
+      <td>469</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ocd-person/bac6c65d-846b-5e60-9532-fa216c99ccf6</td>
+      <td>Mike Turner</td>
+      <td>Mike</td>
+      <td>Turner</td>
+      <td>1960-01-11</td>
+      <td>Male</td>
+      <td>https://turner.house.gov/email-me</td>
+      <td>https://unitedstates.github.io/images/congress...</td>
+      <td>Republican</td>
+      <td>lower</td>
+      <td>...</td>
+      <td>N00025175</td>
+      <td>13204</td>
+      <td>01741</td>
+      <td>45519</td>
+      <td>Q505722</td>
+      <td>Mike Turner</td>
+      <td>UC-6Ss-aZ3OPisf9GdVGtN8g</td>
+      <td>1003607</td>
+      <td>496</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ocd-person/999df51b-9318-55b9-b0f6-d738ffc1d62d</td>
+      <td>Eric Schmitt</td>
+      <td>Eric</td>
+      <td>Schmitt</td>
+      <td>1975-06-20</td>
+      <td>Male</td>
+      <td>https://www.schmitt.senate.gov/contact/</td>
+      <td>https://unitedstates.github.io/images/congress...</td>
+      <td>Republican</td>
+      <td>upper</td>
+      <td>...</td>
+      <td>N00048414</td>
+      <td>13416</td>
+      <td>NaN</td>
+      <td>104474</td>
+      <td>Q5387455</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>S420</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 32 columns</p>
+</div></div></div>
+</div>
+</section>
+</section>
+<section id="dataset-export-and-finalization">
+<h2><strong>Dataset Export and Finalization</strong><a class="headerlink" href="#dataset-export-and-finalization" title="Link to this heading">#</a></h2>
+<p>This section exports the processed legislator data to CSV format for use in subsequent Bridge Grades processing steps.</p>
+<section id="export-process">
+<h3><strong>Export Process</strong><a class="headerlink" href="#export-process" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Data Finalization:</strong> Ensure all data is properly formatted</p></li>
+<li><p><strong>CSV Export:</strong> Save dataset to CSV format</p></li>
+<li><p><strong>File Naming:</strong> Use descriptive filename for easy identification</p></li>
+<li><p><strong>Quality Check:</strong> Verify export completeness</p></li>
+</ol>
+</section>
+<section id="output-files">
+<h3><strong>Output Files</strong><a class="headerlink" href="#output-files" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">plural_legislators_with_bioguide.csv</span></code>:</strong> Current legislators with bioguide_id mappings</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">plural_legislators_retired_with_bioguide.csv</span></code>:</strong> Historical legislators with bioguide_id mappings</p></li>
+</ul>
+<div class="tip admonition">
+<p class="admonition-title">Next Steps</p>
+<p>These datasets will be used in the Source A-B processing notebook to enable accurate legislator identification when processing bill sponsorship data from Plural Policy.</p>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;bioguide_id&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+      <th>bioguide_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ocd-person/79575558-ef44-5bb5-9c64-3d3fe3fb4427</td>
+      <td>Kweisi Mfume</td>
+      <td>M000687</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ocd-person/9db37a87-2ba9-56a0-9b42-89697222e044</td>
+      <td>Carlos Giménez</td>
+      <td>G000593</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ocd-person/84a22f15-cf83-5f0b-a048-a6fc50aa60fe</td>
+      <td>Chris Smith</td>
+      <td>S000522</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ocd-person/bac6c65d-846b-5e60-9532-fa216c99ccf6</td>
+      <td>Mike Turner</td>
+      <td>T000463</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ocd-person/999df51b-9318-55b9-b0f6-d738ffc1d62d</td>
+      <td>Eric Schmitt</td>
+      <td>S001227</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>533</th>
+      <td>ocd-person/86b65fd7-4549-51fa-80e8-eaf3daf3e60e</td>
+      <td>Lou Correa</td>
+      <td>C001110</td>
+    </tr>
+    <tr>
+      <th>534</th>
+      <td>ocd-person/10de7024-4b40-57b0-ae78-101372fd4a02</td>
+      <td>Pat Ryan</td>
+      <td>R000579</td>
+    </tr>
+    <tr>
+      <th>535</th>
+      <td>ocd-person/39f36070-b860-5345-a3cc-ea7fdbf7dfb3</td>
+      <td>Adrian Smith</td>
+      <td>S001172</td>
+    </tr>
+    <tr>
+      <th>536</th>
+      <td>ocd-person/74d8d6c8-c349-4fe7-ae18-62c69c4f8d4b</td>
+      <td>Craig Goldman</td>
+      <td>G000601</td>
+    </tr>
+    <tr>
+      <th>537</th>
+      <td>ocd-person/bb0d60f6-19a4-5229-a67d-a1d428e7c0b2</td>
+      <td>Ben Cline</td>
+      <td>C001118</td>
+    </tr>
+  </tbody>
+</table>
+<p>538 rows × 3 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># are there any missing bioguide ids?</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;bioguide_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">()]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+      <th>given_name</th>
+      <th>family_name</th>
+      <th>birth_date</th>
+      <th>gender</th>
+      <th>email</th>
+      <th>image</th>
+      <th>party</th>
+      <th>role_type</th>
+      <th>...</th>
+      <th>opensecrets_id</th>
+      <th>pictorial_id</th>
+      <th>thomas_id</th>
+      <th>votesmart_id</th>
+      <th>wikidata_id</th>
+      <th>wikipedia_id</th>
+      <th>social_youtube</th>
+      <th>cspan_id</th>
+      <th>maplight_id</th>
+      <th>lis_id</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+<p>0 rows × 32 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save file to csv</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;plural_legislators_with_bioguide.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Current_Legislators"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="get_current_members.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><strong>Current Legislators Data Collection: Congress.gov API</strong></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Source%20A-B.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Source A-B: Legislator and Sponsorship Data Processing</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources"><strong>Data Sources</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-files"><strong>Input Files</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-source-details"><strong>Data Source Details</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outputs"><strong>Outputs</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#current-legislators-dataset"><strong>Current Legislators Dataset</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#retired-legislators-dataset"><strong>Retired Legislators Dataset</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-requirements"><strong>Technical Requirements</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies"><strong>Dependencies</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing-notes"><strong>Data Processing Notes</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-processing-pipeline"><strong>Data Processing Pipeline</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-repository-data-collection"><strong>Step 1: Repository Data Collection</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-yaml-processing"><strong>Step 2: YAML Processing</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-data-normalization"><strong>Step 3: Data Normalization</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-output-generation"><strong>Step 4: Output Generation</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage-in-bridge-grades-pipeline"><strong>Usage in Bridge Grades Pipeline</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-walkthrough-plural-policy-legislator-data-processing"><strong>Notebook Walkthrough: Plural Policy Legislator Data Processing</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-access-and-file-discovery"><strong>Repository Access and File Discovery</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-structure"><strong>Repository Structure</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yaml-processing-and-data-extraction"><strong>YAML Processing and Data Extraction</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#processing-strategy"><strong>Processing Strategy</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-data-fields"><strong>Key Data Fields</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-validation-and-quality-assurance"><strong>Data Validation and Quality Assurance</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#validation-steps"><strong>Validation Steps</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-export-and-finalization"><strong>Dataset Export and Finalization</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#export-process"><strong>Export Process</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output-files"><strong>Output Files</strong></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bridge Grades Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

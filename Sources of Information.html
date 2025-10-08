@@ -1,0 +1,765 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Bridge Grades Data Sources &#8212; Bridge Grades Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Sources of Information';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Current Legislators Data Collection: Congress.gov API" href="Current_Legislators/get_current_members.html" />
+    <link rel="prev" title="About Bridge Grades Project" href="Project%20Explanation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/BRIDGE_GRADES_LOGO.png" class="logo__image only-light" alt="Bridge Grades Documentation - Home"/>
+    <script>document.write(`<img src="_static/BRIDGE_GRADES_LOGO.png" class="logo__image only-dark" alt="Bridge Grades Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Project%20Explanation.html"><strong>About Bridge Grades Project</strong></a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Bridge Grades Data Sources</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Current_Legislators/get_current_members.html"><strong>Current Legislators Data Collection: Congress.gov API</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Current_Legislators/get_legislator_info_plural.html"><strong>Plural Policy Legislator Data Processing</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Source%20A-B.html"><strong>Source A-B: Legislator and Sponsorship Data Processing</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Source%20C-D-E-F.html"><strong>Source C-D-E-F: App Communications Calculations Data Processing</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Source%20M.html"><strong>Source M: Cook Political Partisan Voting Index (PVI) Processing</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Source%20N.html"><strong>Source N: VoteView Member Ideology Scores Processing</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Bridge_Grades_Calculation.html"><strong>Bridge Pledge Score Computation</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Suggested_Weights.html"><strong>Suggested Weights for Bridge Grades System</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Next%20Steps.html"><strong>Next Steps</strong></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSources of Information.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Sources of Information.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Bridge Grades Data Sources</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-data-sources"><strong>Primary Data Sources</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plural-policy-bill-sponsorship-data-sources-a-b"><strong>1. Plural Policy Bill Sponsorship Data - Sources A &amp; B</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#americas-political-pulse-app-sources-c-d-e-f"><strong>2. Americas Political Pulse (APP) - Sources C, D, E, F</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cook-political-partisan-voting-index-pvi-source-m"><strong>3. Cook Political Partisan Voting Index (PVI) - Source M</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#voteview-ideological-scores-source-n"><strong>4. VoteView Ideological Scores - Source N</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lugar-bipartisan-index-conceptual-foundation"><strong>5. Lugar Bipartisan Index (Conceptual Foundation)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#govtrack-report-cards-conceptual-foundation"><strong>6. GovTrack Report Cards (Conceptual Foundation)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#base-data-collection-sources"><strong>Base Data Collection Sources</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#congress-gov-api-master-legislator-roster"><strong>Congress.gov API - Master Legislator Roster</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openstates-people-repository-legislator-biographical-data"><strong>OpenStates People Repository - Legislator Biographical Data</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-source-summary-table">Data Source Summary Table</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="bridge-grades-data-sources">
+<h1><strong>Bridge Grades Data Sources</strong><a class="headerlink" href="#bridge-grades-data-sources" title="Link to this heading">#</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Overview</p>
+<p>Bridge Grades relies on <strong>10 primary data sources</strong> to evaluate congressional collaboration and bipartisanship. Each source measures different aspects of legislative behavior, from bill sponsorship to public communication patterns. This document provides detailed information about each source, how to acquire the data, and how it contributes to the final Bridge Grade calculation.</p>
+</div>
+<section id="primary-data-sources">
+<h2><strong>Primary Data Sources</strong><a class="headerlink" href="#primary-data-sources" title="Link to this heading">#</a></h2>
+<section id="plural-policy-bill-sponsorship-data-sources-a-b">
+<h3><strong>1. Plural Policy Bill Sponsorship Data - Sources A &amp; B</strong><a class="headerlink" href="#plural-policy-bill-sponsorship-data-sources-a-b" title="Link to this heading">#</a></h3>
+<p><strong>Organization:</strong> <a class="reference external" href="https://open.pluralpolicy.com/">Plural Policy</a></p>
+<p><strong>Description:</strong> Comprehensive bill sponsorship and cosponsorship data for the U.S. Congress, tracking legislative collaboration patterns.</p>
+<p><strong>Data Acquisition:</strong></p>
+<ul class="simple">
+<li><p><strong>Website:</strong> <a class="reference external" href="https://open.pluralpolicy.com/data/session-csv/">https://open.pluralpolicy.com/data/session-csv/</a></p></li>
+<li><p><strong>Access:</strong> Free download of session-specific CSV files</p></li>
+<li><p><strong>Format:</strong> CSV files with bill sponsorship records</p></li>
+<li><p><strong>Coverage:</strong> Complete bill sponsorship data for current and historical Congresses</p></li>
+</ul>
+<p><strong>Bridge Grades Metrics:</strong></p>
+<ul class="simple">
+<li><p><strong>Source A:</strong> Authors of Bills with Cross Party Sponsors - Count of sponsored bills with bipartisan cosponsorship</p></li>
+<li><p><strong>Source B:</strong> Ranked People who Cosponsor Bills - Count of bills cosponsored from the opposite party</p></li>
+</ul>
+<p><strong>Current Weight:</strong> 3.0 (A), 2.0 (B)</p>
+</section>
+<hr class="docutils" />
+<section id="americas-political-pulse-app-sources-c-d-e-f">
+<h3><strong>2. Americas Political Pulse (APP) - Sources C, D, E, F</strong><a class="headerlink" href="#americas-political-pulse-app-sources-c-d-e-f" title="Link to this heading">#</a></h3>
+<p><strong>Organization:</strong> <a class="reference external" href="https://americaspoliticalpulse.com/">Polarization Research Lab</a></p>
+<p><strong>Description:</strong> The Polarization Research Lab captures comprehensive data on politicians’ public communications, measuring them across multiple categories including Policy Discussion, Constructive Debate, Personal Attacks, Accomplishments, and Bipartisanship/Compromise.</p>
+<p><strong>About the Organization:</strong> “A research group and resource hub dedicated to applying science to the study of polarization and democracy. Founded on more than a decade of research by top scholars in the field at Dartmouth College, Stanford University, and the University of Pennsylvania, PRL advances the study of partisan animosity by collecting data, testing new ideas through rigorous science, and sharing the data and findings with others.”</p>
+<p><strong>Data Acquisition:</strong></p>
+<ul class="simple">
+<li><p><strong>Website:</strong> <a class="reference external" href="https://americaspoliticalpulse.com/data/">https://americaspoliticalpulse.com/data/</a></p></li>
+<li><p><strong>Access:</strong> Select “US officials” in left menu, then “Download 2025”</p></li>
+<li><p><strong>Format:</strong> CSV files with communication data</p></li>
+<li><p><strong>Coverage:</strong> All forms of public communication including floor speeches, newsletters, press releases, and social media posts</p></li>
+</ul>
+<p><strong>Bridge Grades Metrics:</strong></p>
+<ul class="simple">
+<li><p><strong>Source C:</strong> Bipartisan Communication Sum - Total count of bipartisan communications per legislator</p></li>
+<li><p><strong>Source D:</strong> Bipartisan Communication Percentage - Share of total communications that are bipartisan</p></li>
+<li><p><strong>Source E:</strong> Personal Attack Sum - Total count of personal attacks per legislator</p></li>
+<li><p><strong>Source F:</strong> Personal Attack Percentage - Share of total communications that are personal attacks</p></li>
+</ul>
+<p><strong>Current Weight:</strong> 1.0 each (C, D, E, F)</p>
+</section>
+<hr class="docutils" />
+<section id="cook-political-partisan-voting-index-pvi-source-m">
+<h3><strong>3. Cook Political Partisan Voting Index (PVI) - Source M</strong><a class="headerlink" href="#cook-political-partisan-voting-index-pvi-source-m" title="Link to this heading">#</a></h3>
+<p><strong>Organization:</strong> <a class="reference external" href="https://www.cookpolitical.com/">Cook Political Report</a></p>
+<p><strong>Description:</strong> Measures how partisan each congressional district and state is relative to the national average. This data rewards bridging behaviors by politicians who represent highly partisan districts as a “degree of difficulty” adjustment.</p>
+<p><strong>About the Metric:</strong> “We reward bridging behaviors by those who represent highly partisan voting districts as a ‘degree of difficulty.’ This rewards bridging bravery by politicians who could otherwise resort to divider behaviors and still win re-election.”</p>
+<p><strong>Data Acquisition:</strong></p>
+<ul class="simple">
+<li><p><strong>Website:</strong> <a class="reference external" href="https://www.cookpolitical.com/cook-pvi">https://www.cookpolitical.com/cook-pvi</a></p></li>
+<li><p><strong>Access:</strong> Paid subscription required</p></li>
+<li><p><strong>Format:</strong> Excel files with district and state-level PVI data</p></li>
+<li><p><strong>Coverage:</strong> All 435 House districts and 50 states for Senate races</p></li>
+</ul>
+<p><strong>Bridge Grades Metrics:</strong></p>
+<ul class="simple">
+<li><p><strong>Source M:</strong> Cook Political PVI - District/state partisan lean used as multiplier for degree of difficulty</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="voteview-ideological-scores-source-n">
+<h3><strong>4. VoteView Ideological Scores - Source N</strong><a class="headerlink" href="#voteview-ideological-scores-source-n" title="Link to this heading">#</a></h3>
+<p><strong>Organization:</strong> <a class="reference external" href="https://voteview.com/">VoteView</a></p>
+<p><strong>Description:</strong> Provides ideological positioning of members of Congress based on roll-call voting patterns. VoteView allows users to view every congressional roll call vote in American history on a map of the United States and on a liberal-conservative ideological map.</p>
+<p><strong>About the Data:</strong> “<a class="reference external" href="http://Voteview.com">Voteview.com</a> allows users to view every congressional roll call vote in American history on a map of the United States and on a liberal-conservative ideological map including information about the ideological positions of voting Senators and Representatives.”</p>
+<p><strong>Data Acquisition:</strong></p>
+<ul class="simple">
+<li><p><strong>Website:</strong> <a class="reference external" href="https://voteview.com/data">https://voteview.com/data</a></p></li>
+<li><p><strong>Access:</strong> Free download</p></li>
+<li><p><strong>Format:</strong> CSV files with member ideology data</p></li>
+<li><p><strong>Coverage:</strong> All members of Congress with ideology scores based on voting patterns</p></li>
+</ul>
+<p><strong>Bridge Grades Metrics:</strong></p>
+<ul class="simple">
+<li><p><strong>Source N:</strong> VoteView Member Ideology Scores - Absolute distance from ideological center used as multiplier</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="lugar-bipartisan-index-conceptual-foundation">
+<h3><strong>5. Lugar Bipartisan Index (Conceptual Foundation)</strong><a class="headerlink" href="#lugar-bipartisan-index-conceptual-foundation" title="Link to this heading">#</a></h3>
+<p><strong>Organization:</strong> <a class="reference external" href="https://www.thelugarcenter.org/">Lugar Center</a></p>
+<p><strong>Description:</strong> A weighted index that measures bipartisan bill authoring and sponsorship patterns. While not directly used in Bridge Grades calculations, this index provides the conceptual foundation for our bill sponsorship metrics.</p>
+<p><strong>About the Index:</strong> “A consistently low score on this index will be a very strong indication that a legislator is viewing his or her duties through a partisan lens. Conversely, a consistently high score is a strong indication that a legislator is prioritizing problem solving and open to working with the other party when possible.”</p>
+<p><strong>Relationship to Bridge Grades:</strong> Our Sources A and B (bill sponsorship metrics) are inspired by and aligned with the Lugar Bipartisan Index methodology.</p>
+</section>
+<hr class="docutils" />
+<section id="govtrack-report-cards-conceptual-foundation">
+<h3><strong>6. GovTrack Report Cards (Conceptual Foundation)</strong><a class="headerlink" href="#govtrack-report-cards-conceptual-foundation" title="Link to this heading">#</a></h3>
+<p><strong>Organization:</strong> <a class="reference external" href="https://www.govtrack.us/">GovTrack</a></p>
+<p><strong>Description:</strong> Provides rankings on legislator performance in authoring and co-sponsoring bipartisan legislation. Specifically includes two measures: (1) authoring bills that attract co-sponsors from another party, and (2) co-sponsoring bills authored by a member from another party.</p>
+<p><strong>Relationship to Bridge Grades:</strong> Our Sources A and B directly implement these two GovTrack measures using Plural Policy data.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="base-data-collection-sources">
+<h2><strong>Base Data Collection Sources</strong><a class="headerlink" href="#base-data-collection-sources" title="Link to this heading">#</a></h2>
+<section id="congress-gov-api-master-legislator-roster">
+<h3><strong><a class="reference external" href="http://Congress.gov">Congress.gov</a> API - Master Legislator Roster</strong><a class="headerlink" href="#congress-gov-api-master-legislator-roster" title="Link to this heading">#</a></h3>
+<p><strong>Organization:</strong> <a class="reference external" href="https://www.congress.gov/">Congress.gov</a></p>
+<p><strong>Description:</strong> Official congressional member data providing the master roster of current legislators with unique bioguide_id identifiers.</p>
+<p><strong>Data Acquisition:</strong></p>
+<ul class="simple">
+<li><p><strong>API:</strong> <a class="reference external" href="https://api.congress.gov/v3/member/congress/119/">https://api.congress.gov/v3/member/congress/119/</a></p></li>
+<li><p><strong>Access:</strong> Free with API key registration</p></li>
+<li><p><strong>Format:</strong> JSON API responses</p></li>
+<li><p><strong>Coverage:</strong> All current House Representatives and Senators</p></li>
+</ul>
+<p><strong>Bridge Grades Role:</strong> Provides the foundational legislator dataset (<code class="docutils literal notranslate"><span class="pre">119th_Congress_20250809.csv</span></code>) that serves as the master roster for all subsequent data processing and analysis.</p>
+</section>
+<hr class="docutils" />
+<section id="openstates-people-repository-legislator-biographical-data">
+<h3><strong>OpenStates People Repository - Legislator Biographical Data</strong><a class="headerlink" href="#openstates-people-repository-legislator-biographical-data" title="Link to this heading">#</a></h3>
+<p><strong>Organization:</strong> <a class="reference external" href="https://openstates.org/">OpenStates</a></p>
+<p><strong>Description:</strong> Comprehensive legislator biographical database with multiple identifier schemes including bioguide_id mappings.</p>
+<p><strong>Data Acquisition:</strong></p>
+<ul class="simple">
+<li><p><strong>Repository:</strong> <a class="github reference external" href="https://github.com/openstates/people.git">openstates/people.git</a></p></li>
+<li><p><strong>Access:</strong> Free, open source</p></li>
+<li><p><strong>Format:</strong> YAML files per legislator</p></li>
+<li><p><strong>Coverage:</strong> Historical and current legislators with comprehensive biographical data</p></li>
+</ul>
+<p><strong>Bridge Grades Role:</strong> Enables accurate legislator identification when processing bill sponsorship data from Plural Policy sources by providing bioguide_id mappings.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="data-source-summary-table">
+<h2>Data Source Summary Table<a class="headerlink" href="#data-source-summary-table" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Source</p></th>
+<th class="head"><p>Organization</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Access</p></th>
+<th class="head"><p>Current Weight</p></th>
+<th class="head"><p>Bridge Grades Metric</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>A</strong></p></td>
+<td><p>Plural Policy</p></td>
+<td><p>Bill Sponsorship</p></td>
+<td><p>Free</p></td>
+<td><p>3.0</p></td>
+<td><p>Authors of bills with cross-party sponsors</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>B</strong></p></td>
+<td><p>Plural Policy</p></td>
+<td><p>Bill Cosponsorship</p></td>
+<td><p>Free</p></td>
+<td><p>2.0</p></td>
+<td><p>Cosponsors of cross-party bills</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>C</strong></p></td>
+<td><p>Americas Political Pulse</p></td>
+<td><p>Communication</p></td>
+<td><p>Free</p></td>
+<td><p>1.0</p></td>
+<td><p>Bipartisan communication sum</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>D</strong></p></td>
+<td><p>Americas Political Pulse</p></td>
+<td><p>Communication</p></td>
+<td><p>Free</p></td>
+<td><p>1.0</p></td>
+<td><p>Bipartisan communication percentage</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>E</strong></p></td>
+<td><p>Americas Political Pulse</p></td>
+<td><p>Communication</p></td>
+<td><p>Free</p></td>
+<td><p>1.0</p></td>
+<td><p>Personal attack sum</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>F</strong></p></td>
+<td><p>Americas Political Pulse</p></td>
+<td><p>Communication</p></td>
+<td><p>Free</p></td>
+<td><p>1.0</p></td>
+<td><p>Personal attack percentage</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>M</strong></p></td>
+<td><p>Cook Political</p></td>
+<td><p>PVI Data</p></td>
+<td><p>Paid</p></td>
+<td><p>Bonus</p></td>
+<td><p>District partisan lean multiplier</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>N</strong></p></td>
+<td><p>VoteView</p></td>
+<td><p>Ideology Scores</p></td>
+<td><p>Free</p></td>
+<td><p>Bonus</p></td>
+<td><p>Ideological distance multiplier</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>P</strong></p></td>
+<td><p>Manual</p></td>
+<td><p>Caucus Membership</p></td>
+<td><p>Manual</p></td>
+<td><p>Bonus</p></td>
+<td><p>Problem Solvers Caucus bonus</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Project%20Explanation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><strong>About Bridge Grades Project</strong></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Current_Legislators/get_current_members.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Current Legislators Data Collection: Congress.gov API</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-data-sources"><strong>Primary Data Sources</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plural-policy-bill-sponsorship-data-sources-a-b"><strong>1. Plural Policy Bill Sponsorship Data - Sources A &amp; B</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#americas-political-pulse-app-sources-c-d-e-f"><strong>2. Americas Political Pulse (APP) - Sources C, D, E, F</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cook-political-partisan-voting-index-pvi-source-m"><strong>3. Cook Political Partisan Voting Index (PVI) - Source M</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#voteview-ideological-scores-source-n"><strong>4. VoteView Ideological Scores - Source N</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lugar-bipartisan-index-conceptual-foundation"><strong>5. Lugar Bipartisan Index (Conceptual Foundation)</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#govtrack-report-cards-conceptual-foundation"><strong>6. GovTrack Report Cards (Conceptual Foundation)</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#base-data-collection-sources"><strong>Base Data Collection Sources</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#congress-gov-api-master-legislator-roster"><strong>Congress.gov API - Master Legislator Roster</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#openstates-people-repository-legislator-biographical-data"><strong>OpenStates People Repository - Legislator Biographical Data</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-source-summary-table">Data Source Summary Table</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bridge Grades Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,822 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>About Bridge Grades Project &#8212; Bridge Grades Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Project Explanation';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Bridge Grades Data Sources" href="Sources%20of%20Information.html" />
+    <link rel="prev" title="Introduction" href="Intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/BRIDGE_GRADES_LOGO.png" class="logo__image only-light" alt="Bridge Grades Documentation - Home"/>
+    <script>document.write(`<img src="_static/BRIDGE_GRADES_LOGO.png" class="logo__image only-dark" alt="Bridge Grades Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>About Bridge Grades Project</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sources%20of%20Information.html"><strong>Bridge Grades Data Sources</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Current_Legislators/get_current_members.html"><strong>Current Legislators Data Collection: Congress.gov API</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Current_Legislators/get_legislator_info_plural.html"><strong>Plural Policy Legislator Data Processing</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Source%20A-B.html"><strong>Source A-B: Legislator and Sponsorship Data Processing</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Source%20C-D-E-F.html"><strong>Source C-D-E-F: App Communications Calculations Data Processing</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Source%20M.html"><strong>Source M: Cook Political Partisan Voting Index (PVI) Processing</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Source%20N.html"><strong>Source N: VoteView Member Ideology Scores Processing</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Bridge_Grades_Calculation.html"><strong>Bridge Pledge Score Computation</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Suggested_Weights.html"><strong>Suggested Weights for Bridge Grades System</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Next%20Steps.html"><strong>Next Steps</strong></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FProject Explanation.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Project Explanation.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>About Bridge Grades Project</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bridge-grades-data-pipeline-overview"><strong>Bridge Grades Data Pipeline Overview</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-philosophy"><strong>Project Philosophy</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-pipeline-architecture"><strong>Data Pipeline Architecture</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-structure-and-data-flow"><strong>Notebook Structure and Data Flow</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#base-data-collection-notebooks"><strong>Base Data Collection Notebooks</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#current-legislators-data-collection"><strong>Current Legislators Data Collection</strong></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-notebooks-data-sources-a-p"><strong>Preprocessing Notebooks (Data Sources A-P)</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#source-a-b-legislator-and-sponsorship-data-processing"><strong>Source A-B: Legislator and Sponsorship Data Processing</strong></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#source-c-d-e-f-app-communications-calculations"><strong>Source C-D-E-F: APP Communications Calculations</strong></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#source-m-cook-political-pvi-processing"><strong>Source M: Cook Political PVI Processing</strong></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#source-n-voteview-ideology-scores"><strong>Source N: VoteView Ideology Scores</strong></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#source-p-problem-solvers-caucus-bump"><strong>Source P: Problem Solvers Caucus “Bump”</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-scoring-engine"><strong>Main Scoring Engine</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bridge-pledge-119-final-bridge-grade-calculation"><strong>Bridge_Pledge_119: Final Bridge Grade Calculation</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-principles-in-practice"><strong>Key Principles in Practice</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quality-assurance-and-validation"><strong>Quality Assurance and Validation</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bridge-grades-impact"><strong>Bridge Grades Impact</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-voters"><strong>For Voters</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-legislators"><strong>For Legislators</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-democracy"><strong>For Democracy</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="about-bridge-grades-project">
+<h1><strong>About Bridge Grades Project</strong><a class="headerlink" href="#about-bridge-grades-project" title="Link to this heading">#</a></h1>
+<section id="bridge-grades-data-pipeline-overview">
+<h2><strong>Bridge Grades Data Pipeline Overview</strong><a class="headerlink" href="#bridge-grades-data-pipeline-overview" title="Link to this heading">#</a></h2>
+<section id="project-philosophy">
+<h3><strong>Project Philosophy</strong><a class="headerlink" href="#project-philosophy" title="Link to this heading">#</a></h3>
+<p>Bridge Grades is built on four core principles that guide every aspect of our methodology:</p>
+<ul class="simple">
+<li><p><strong>Non-ideological:</strong> Focus on behavior, not beliefs</p></li>
+<li><p><strong>Data-driven:</strong> Based on observable legislative actions</p></li>
+<li><p><strong>Transparent:</strong> Derived from public, verifiable sources</p></li>
+<li><p><strong>Comprehensive:</strong> Capture multiple dimensions of collaboration</p></li>
+</ul>
+<p>These principles ensure that Bridge Grades measures <strong>how</strong> politicians behave rather than <strong>what</strong> they believe, providing objective assessments of bipartisan collaboration that transcend partisan divides.</p>
+</section>
+<section id="data-pipeline-architecture">
+<h3><strong>Data Pipeline Architecture</strong><a class="headerlink" href="#data-pipeline-architecture" title="Link to this heading">#</a></h3>
+<p>The Bridge Grades methodology follows a systematic data pipeline that transforms raw congressional data into meaningful collaboration grades. The pipeline consists of three main stages:</p>
+<div class="tip admonition">
+<p class="admonition-title">Stage 1: Data Preprocessing Notebooks</p>
+<p><strong>Purpose:</strong> Transform raw data sources into standardized, analysis-ready datasets
+Each preprocessing notebook takes one or more raw data sources and converts them into the specific metrics needed for Bridge Grade calculations. These notebooks handle data cleaning, standardization, and initial metric calculations.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Stage 2: Data Integration and Scoring</p>
+<p><strong>Purpose:</strong> Combine all processed datasets and calculate final Bridge Grades</p>
+<p>The main scoring engine takes all preprocessed datasets and applies the Bridge Grades algorithm to generate final letter grades (A, B, C, F) for each member of Congress.</p>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Stage 3: Output and Analysis</p>
+<p><strong>Purpose:</strong> Generate final results and provide transparency into the scoring process</p>
+<p>Final datasets include complete scoring breakdowns, allowing users to understand exactly how each Bridge Grade was calculated.</p>
+</div>
+</section>
+<section id="notebook-structure-and-data-flow">
+<h3><strong>Notebook Structure and Data Flow</strong><a class="headerlink" href="#notebook-structure-and-data-flow" title="Link to this heading">#</a></h3>
+<p><img alt="DataFlow" src="_images/DataFlow.png" /></p>
+<section id="base-data-collection-notebooks">
+<h4><strong>Base Data Collection Notebooks</strong><a class="headerlink" href="#base-data-collection-notebooks" title="Link to this heading">#</a></h4>
+<section id="current-legislators-data-collection">
+<h5><strong>Current Legislators Data Collection</strong><a class="headerlink" href="#current-legislators-data-collection" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p><strong>Purpose:</strong> Generate master legislator roster from official sources</p></li>
+<li><p><strong>Input:</strong> <a class="reference external" href="http://Congress.gov">Congress.gov</a> API and OpenStates repository</p></li>
+<li><p><strong>Process:</strong> Collects current member information and bioguide_id mappings</p></li>
+<li><p><strong>Output:</strong> Master legislator datasets with unique identifiers</p></li>
+<li><p><strong>Bridge Grades Impact:</strong> Provides essential legislator identification for all subsequent processing</p></li>
+</ul>
+</section>
+</section>
+<section id="preprocessing-notebooks-data-sources-a-p">
+<h4><strong>Preprocessing Notebooks (Data Sources A-P)</strong><a class="headerlink" href="#preprocessing-notebooks-data-sources-a-p" title="Link to this heading">#</a></h4>
+<section id="source-a-b-legislator-and-sponsorship-data-processing">
+<h5><strong>Source A-B: Legislator and Sponsorship Data Processing</strong><a class="headerlink" href="#source-a-b-legislator-and-sponsorship-data-processing" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p><strong>Input:</strong> Raw bill sponsorship data from Plural Policy</p></li>
+<li><p><strong>Process:</strong> Identifies bills with cross-party cosponsorship and calculates collaboration metrics</p></li>
+<li><p><strong>Output:</strong> Two key datasets:</p>
+<ul>
+<li><p>Source A: Authors of bills with cross-party sponsors</p></li>
+<li><p>Source B: Legislators who cosponsor bills from the opposite party</p></li>
+</ul>
+</li>
+<li><p><strong>Bridge Grades Impact:</strong> Core legislative collaboration metrics (suggested weights: A=3.0, B=2.0)</p></li>
+</ul>
+</section>
+<section id="source-c-d-e-f-app-communications-calculations">
+<h5><strong>Source C-D-E-F: APP Communications Calculations</strong><a class="headerlink" href="#source-c-d-e-f-app-communications-calculations" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p><strong>Input:</strong> Public communication data from Americas Political Pulse</p></li>
+<li><p><strong>Process:</strong> Analyzes rhetoric patterns for bipartisanship and personal attacks</p></li>
+<li><p><strong>Output:</strong> Four communication metrics:</p>
+<ul>
+<li><p>Source C: Bipartisan communication sum</p></li>
+<li><p>Source D: Bipartisan communication percentage</p></li>
+<li><p>Source E: Personal attack sum</p></li>
+<li><p>Source F: Personal attack percentage</p></li>
+</ul>
+</li>
+<li><p><strong>Bridge Grades Impact:</strong> Measures public rhetoric and communication style (suggested weights: 1.0 each)</p></li>
+</ul>
+</section>
+<section id="source-m-cook-political-pvi-processing">
+<h5><strong>Source M: Cook Political PVI Processing</strong><a class="headerlink" href="#source-m-cook-political-pvi-processing" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p><strong>Input:</strong> Partisan Voting Index data from Cook Political</p></li>
+<li><p><strong>Process:</strong> Measures district/state partisan lean for “degree of difficulty” adjustment</p></li>
+<li><p><strong>Output:</strong> PVI scores for all congressional districts and states</p></li>
+<li><p><strong>Bridge Grades Impact:</strong> Bonus for rewarding bridging in highly partisan districts</p></li>
+</ul>
+</section>
+<section id="source-n-voteview-ideology-scores">
+<h5><strong>Source N: VoteView Ideology Scores</strong><a class="headerlink" href="#source-n-voteview-ideology-scores" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p><strong>Input:</strong> Ideological positioning data from VoteView</p></li>
+<li><p><strong>Process:</strong> Calculates distance from ideological center</p></li>
+<li><p><strong>Output:</strong> Ideology distance scores for all members</p></li>
+<li><p><strong>Bridge Grades Impact:</strong> Bonus for rewarding bridging by non-centrist legislators</p></li>
+</ul>
+</section>
+<section id="source-p-problem-solvers-caucus-bump">
+<h5><strong>Source P: Problem Solvers Caucus “Bump”</strong><a class="headerlink" href="#source-p-problem-solvers-caucus-bump" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p><strong>Input:</strong> Membership list of the Problem Solvers Caucus (PSC) from <a class="reference external" href="https://problemsolverscaucus.house.gov/caucus-members">problemsolverscaucus.house.gov</a></p></li>
+<li><p><strong>Process:</strong> Flags each legislator by bioguide ID and applies a fixed points boost (<code class="docutils literal notranslate"><span class="pre">ps_score</span></code>) to their pledge score</p></li>
+<li><p><strong>Output:</strong> <code class="docutils literal notranslate"><span class="pre">P_flag</span></code> (0 or 1)</p></li>
+<li><p><strong>Bridge Grades Impact:</strong> Bonus for rewarding participation of PSC members</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="main-scoring-engine">
+<h3><strong>Main Scoring Engine</strong><a class="headerlink" href="#main-scoring-engine" title="Link to this heading">#</a></h3>
+<section id="bridge-pledge-119-final-bridge-grade-calculation">
+<h4><strong>Bridge_Pledge_119: Final Bridge Grade Calculation</strong><a class="headerlink" href="#bridge-pledge-119-final-bridge-grade-calculation" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Input:</strong> All preprocessed datasets (Sources A-P) plus attendance data</p></li>
+<li><p><strong>Process:</strong></p>
+<ol class="arabic simple">
+<li><p>Applies attendance filtering (removes members below 20% attendance)</p></li>
+<li><p>Integrates all data sources using bioguide_id matching</p></li>
+<li><p>Normalizes all metrics to 0-100 scale using statistical distributions</p></li>
+<li><p>Applies configurable weights to each source</p></li>
+<li><p>Calculates composite scores with ideology multipliers</p></li>
+<li><p>Assigns letter grades using statistical thresholds</p></li>
+</ol>
+</li>
+<li><p><strong>Output:</strong> Complete scoring datasets for House and Senate members</p></li>
+<li><p><strong>Key Features:</strong></p>
+<ul>
+<li><p>Configurable source weights</p></li>
+<li><p>Problem Solvers Caucus bonus</p></li>
+<li><p>Statistical grade assignment (A/B/C/F)</p></li>
+<li><p>Complete transparency in scoring breakdown</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="key-principles-in-practice">
+<h3><strong>Key Principles in Practice</strong><a class="headerlink" href="#key-principles-in-practice" title="Link to this heading">#</a></h3>
+<div class="tip admonition">
+<p class="admonition-title">Non-Ideological Focus</p>
+<ul class="simple">
+<li><p><strong>What We Measure:</strong> Legislative collaboration, bill sponsorship, communication patterns</p></li>
+<li><p><strong>What We Don’t Measure:</strong> Political beliefs, policy positions, voting ideology</p></li>
+<li><p><strong>Implementation:</strong> Sources M and N use ideology only as context multipliers, not direct scoring factors</p></li>
+</ul>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Data-Driven Methodology</p>
+<ul class="simple">
+<li><p><strong>Observable Behaviors:</strong> All metrics based on concrete actions (sponsoring bills, making statements, voting)</p></li>
+<li><p><strong>Public Records:</strong> Every data point traceable to official congressional records</p></li>
+<li><p><strong>Statistical Rigor:</strong> Normalization and threshold-based grading eliminate subjective judgments</p></li>
+</ul>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Transparency</p>
+<ul class="simple">
+<li><p><strong>Complete Traceability:</strong> Every score component preserved in output files</p></li>
+<li><p><strong>Open Data Sources:</strong> All primary data publicly accessible</p></li>
+<li><p><strong>Configurable Weights:</strong> All source weights can be adjusted and documented</p></li>
+<li><p><strong>Methodology Disclosure:</strong> Full documentation of algorithms and processes</p></li>
+</ul>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Comprehensive Coverage</p>
+<ul class="simple">
+<li><p><strong>Multiple Dimensions:</strong> Legislative action, public communication, district context</p></li>
+<li><p><strong>Both Chambers:</strong> House and Senate processed separately with appropriate adjustments</p></li>
+<li><p><strong>Full Congress:</strong> All members included (subject to attendance requirements)</p></li>
+<li><p><strong>Balanced Metrics:</strong> Both positive (collaboration) and negative (attacks) behaviors measured</p></li>
+</ul>
+</div>
+</section>
+<section id="quality-assurance-and-validation">
+<h3><strong>Quality Assurance and Validation</strong><a class="headerlink" href="#quality-assurance-and-validation" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p><strong>Data Quality Checks</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Attendance Filtering:</strong> Removes members with insufficient participation</p></li>
+<li><p><strong>Missing Data Handling:</strong> Appropriate filling strategies for each data type</p></li>
+<li><p><strong>Duplicate Removal:</strong> Systematic handling of duplicate records</p></li>
+<li><p><strong>Outlier Detection:</strong> Statistical validation of extreme values</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p><strong>Methodology Validation</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Cross-Reference Checks:</strong> Multiple sources validate legislator identification</p></li>
+<li><p><strong>Statistical Consistency:</strong> Regular validation of scoring distributions</p></li>
+<li><p><strong>Transparency Audits:</strong> Periodic reviews of methodology and outputs</p></li>
+<li><p><strong>User Feedback Integration:</strong> Continuous improvement based on stakeholder input</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p><strong>Update and Maintenance</strong></p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Regular Data Updates:</strong> Monthly to annual refresh cycles depending on source</p></li>
+<li><p><strong>Version Control:</strong> Complete tracking of methodology changes</p></li>
+<li><p><strong>Backup and Recovery:</strong> Robust data storage and processing systems</p></li>
+<li><p><strong>Documentation Maintenance:</strong> Continuous updates to reflect current methodology</p></li>
+</ul>
+</section>
+<section id="bridge-grades-impact">
+<h3><strong>Bridge Grades Impact</strong><a class="headerlink" href="#bridge-grades-impact" title="Link to this heading">#</a></h3>
+<section id="for-voters">
+<h4><strong>For Voters</strong><a class="headerlink" href="#for-voters" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Objective Assessment:</strong> Clear, data-driven evaluation of congressional collaboration</p></li>
+<li><p><strong>Transparent Methodology:</strong> Complete understanding of how grades are calculated</p></li>
+<li><p><strong>Actionable Information:</strong> Identifies “bridgers” vs “dividers” for informed voting</p></li>
+</ul>
+</section>
+<section id="for-legislators">
+<h4><strong>For Legislators</strong><a class="headerlink" href="#for-legislators" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Performance Feedback:</strong> Clear metrics on collaboration effectiveness</p></li>
+<li><p><strong>Incentive Alignment:</strong> Rewards bipartisan behavior regardless of ideology</p></li>
+<li><p><strong>Recognition System:</strong> Acknowledges Problem Solvers Caucus and other collaborative efforts</p></li>
+</ul>
+</section>
+<section id="for-democracy">
+<h4><strong>For Democracy</strong><a class="headerlink" href="#for-democracy" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Polarization Reduction:</strong> Encourages collaboration over division</p></li>
+<li><p><strong>Accountability:</strong> Public scoring creates pressure for bipartisan engagement</p></li>
+<li><p><strong>Transparency:</strong> Open methodology builds trust in the evaluation process</p></li>
+<li><p><strong>Evidence-Based Reform:</strong> Data-driven insights for improving congressional function</p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><strong>Introduction</strong></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Sources%20of%20Information.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Bridge Grades Data Sources</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bridge-grades-data-pipeline-overview"><strong>Bridge Grades Data Pipeline Overview</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-philosophy"><strong>Project Philosophy</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-pipeline-architecture"><strong>Data Pipeline Architecture</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-structure-and-data-flow"><strong>Notebook Structure and Data Flow</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#base-data-collection-notebooks"><strong>Base Data Collection Notebooks</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#current-legislators-data-collection"><strong>Current Legislators Data Collection</strong></a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing-notebooks-data-sources-a-p"><strong>Preprocessing Notebooks (Data Sources A-P)</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#source-a-b-legislator-and-sponsorship-data-processing"><strong>Source A-B: Legislator and Sponsorship Data Processing</strong></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#source-c-d-e-f-app-communications-calculations"><strong>Source C-D-E-F: APP Communications Calculations</strong></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#source-m-cook-political-pvi-processing"><strong>Source M: Cook Political PVI Processing</strong></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#source-n-voteview-ideology-scores"><strong>Source N: VoteView Ideology Scores</strong></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#source-p-problem-solvers-caucus-bump"><strong>Source P: Problem Solvers Caucus “Bump”</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-scoring-engine"><strong>Main Scoring Engine</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bridge-pledge-119-final-bridge-grade-calculation"><strong>Bridge_Pledge_119: Final Bridge Grade Calculation</strong></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-principles-in-practice"><strong>Key Principles in Practice</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#quality-assurance-and-validation"><strong>Quality Assurance and Validation</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bridge-grades-impact"><strong>Bridge Grades Impact</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-voters"><strong>For Voters</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-legislators"><strong>For Legislators</strong></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#for-democracy"><strong>For Democracy</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bridge Grades Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

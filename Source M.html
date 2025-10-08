@@ -1,0 +1,1883 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Source M: Cook Political Partisan Voting Index (PVI) Processing &#8212; Bridge Grades Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Source M';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Source N: VoteView Member Ideology Scores Processing" href="Source%20N.html" />
+    <link rel="prev" title="Source C-D-E-F: App Communications Calculations Data Processing" href="Source%20C-D-E-F.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/BRIDGE_GRADES_LOGO.png" class="logo__image only-light" alt="Bridge Grades Documentation - Home"/>
+    <script>document.write(`<img src="_static/BRIDGE_GRADES_LOGO.png" class="logo__image only-dark" alt="Bridge Grades Documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Project%20Explanation.html"><strong>About Bridge Grades Project</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Sources%20of%20Information.html"><strong>Bridge Grades Data Sources</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Current_Legislators/get_current_members.html"><strong>Current Legislators Data Collection: Congress.gov API</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Current_Legislators/get_legislator_info_plural.html"><strong>Plural Policy Legislator Data Processing</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Source%20A-B.html"><strong>Source A-B: Legislator and Sponsorship Data Processing</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Source%20C-D-E-F.html"><strong>Source C-D-E-F: App Communications Calculations Data Processing</strong></a></li>
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Source M: Cook Political Partisan Voting Index (PVI) Processing</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Source%20N.html"><strong>Source N: VoteView Member Ideology Scores Processing</strong></a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="Bridge_Grades_Calculation.html"><strong>Bridge Pledge Score Computation</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Suggested_Weights.html"><strong>Suggested Weights for Bridge Grades System</strong></a></li>
+<li class="toctree-l1"><a class="reference internal" href="Next%20Steps.html"><strong>Next Steps</strong></a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FSource M.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Source M.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Source M: Cook Political Partisan Voting Index (PVI) Processing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Source M: Cook Political Partisan Voting Index (PVI) Processing</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources"><strong>Data Sources</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-files"><strong>Input Files</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-source-details"><strong>Data Source Details</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outputs"><strong>Outputs</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-m-house-pvi"><strong>Source M: House PVI</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-m-senate-pvi"><strong>Source M: Senate PVI</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-requirements"><strong>Technical Requirements</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies"><strong>Dependencies</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-notes"><strong>Performance Notes</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality"><strong>Data Quality</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-integrity-notes"><strong>Data Integrity Notes</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features"><strong>Key Features</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pvi-interpretation"><strong>PVI Interpretation</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-walkthrough-source-m-cook-political-partisan-voting-index-pvi"><strong>Notebook Walkthrough: Source M - Cook Political Partisan Voting Index (PVI)</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-parse-pvi-values"><strong>Load &amp; Parse PVI Values</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-parse-senate-pvi"><strong>Load &amp; Parse Senate PVI</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-party-state-district-keys"><strong>Prepare party-state-district keys</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-filter-for-house"><strong>Merge &amp; Filter for House</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finalize-export"><strong>Finalize &amp; Export</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-senator-metadata-merge"><strong>Prepare Senator Metadata &amp; Merge</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flag-adjust-party-mismatches"><strong>Flag &amp; Adjust Party Mismatches</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Finalize &amp; Export</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="source-m-cook-political-partisan-voting-index-pvi-processing">
+<h1><strong>Source M: Cook Political Partisan Voting Index (PVI) Processing</strong><a class="headerlink" href="#source-m-cook-political-partisan-voting-index-pvi-processing" title="Link to this heading">#</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Overview</p>
+<p>This notebook processes Cook Political Partisan Voting Index (PVI) data to generate the <strong>Source M</strong> dataset used in the Bridge Grades methodology to measure the partisan lean of each U.S. congressional district relative to the national average.</p>
+<ul class="simple">
+<li><p><strong>Source M:</strong> <em>Cook Political Partisan Voting Index (PVI)</em> - Measures district-level partisan lean for both House and Senate</p></li>
+</ul>
+<p>The PVI values generated here will be merged into the master district-level dataset for final Bridge Grade calculations, providing context for evaluating bipartisan behavior relative to district characteristics.</p>
+</div>
+<section id="data-sources">
+<h2><strong>Data Sources</strong><a class="headerlink" href="#data-sources" title="Link to this heading">#</a></h2>
+<section id="input-files">
+<h3><strong>Input Files</strong><a class="headerlink" href="#input-files" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">Cook</span> <span class="pre">PVI</span> <span class="pre">1997-2025.xlsx</span></code></strong> - House district PVI data from Cook Political (paid subscription)</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">2025</span> <span class="pre">PVI</span> <span class="pre">States.csv</span></code></strong> - State-level PVI data for Senate races</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">119th_Congress_*.csv</span></code></strong> - Congressional metadata with bioguide IDs and district assignments</p></li>
+</ul>
+</section>
+<section id="data-source-details">
+<h3><strong>Data Source Details</strong><a class="headerlink" href="#data-source-details" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Source:</strong> <a class="reference external" href="https://www.cookpolitical.com/cook-pvi">Cook Political</a> (paid subscription)</p></li>
+<li><p><strong>Congress:</strong> 119th U.S. Congress</p></li>
+<li><p><strong>Download Date:</strong> April 17, 2025 (Data updates periodically. Last checked: August 8, 2025)</p></li>
+<li><p><strong>Coverage:</strong> Partisan Voting Index for all House districts and Senate states</p></li>
+<li><p><strong>Original Processing:</strong> <code class="docutils literal notranslate"><span class="pre">PVI</span> <span class="pre">Pre-Processing.ipynb</span></code></p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="outputs">
+<h2><strong>Outputs</strong><a class="headerlink" href="#outputs" title="Link to this heading">#</a></h2>
+<section id="source-m-house-pvi">
+<h3><strong>Source M: House PVI</strong><a class="headerlink" href="#source-m-house-pvi" title="Link to this heading">#</a></h3>
+<p><strong>File:</strong> <code class="docutils literal notranslate"><span class="pre">bridge_grade_source_m_house_pvi.csv</span></code></p>
+<p><strong>Columns:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Name</span></code>: Legislator’s full name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Chamber</span></code>: “House” for all records</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bioguide_id</span></code>: Unique legislator identifier</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Party</span></code>: Legislator’s political party</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Cook_PVI_Party</span></code>: District’s partisan lean (D/R)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Cook_PVI_Number</span></code>: Numeric PVI value (0 if party mismatch)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PVI_Party_Diff</span></code>: Boolean flag for party mismatches</p></li>
+</ul>
+<p><strong>Interpretation:</strong> Higher PVI numbers indicate stronger partisan lean in the district. Zero values indicate party mismatches where the legislator represents a district leaning toward the opposite party.</p>
+</section>
+<section id="source-m-senate-pvi">
+<h3><strong>Source M: Senate PVI</strong><a class="headerlink" href="#source-m-senate-pvi" title="Link to this heading">#</a></h3>
+<p><strong>File:</strong> <code class="docutils literal notranslate"><span class="pre">bridge_grade_source_m_senate_pvi.csv</span></code></p>
+<p><strong>Columns:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Name</span></code>: Senator’s full name</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Chamber</span></code>: “Senate” for all records</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bioguide_id</span></code>: Unique legislator identifier</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Party</span></code>: Senator’s political party</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PVI_Party</span></code>: State’s partisan lean (D/R)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PVI_Number</span></code>: Numeric PVI value (0 if party mismatch)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PVI_Party_Diff</span></code>: Boolean flag for party mismatches</p></li>
+</ul>
+<p><strong>Interpretation:</strong> Higher PVI numbers indicate stronger partisan lean in the state. Zero values indicate party mismatches where the senator represents a state leaning toward the opposite party.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="technical-requirements">
+<h2><strong>Technical Requirements</strong><a class="headerlink" href="#technical-requirements" title="Link to this heading">#</a></h2>
+<section id="dependencies">
+<h3><strong>Dependencies</strong><a class="headerlink" href="#dependencies" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pandas</span></code>: Data manipulation and analysis</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy</span></code>: Numerical operations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scipy.stats</span></code>: Statistical functions (imported but not used in current version)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">warnings</span></code>: Warning suppression for pandas operations</p></li>
+</ul>
+</section>
+<section id="performance-notes">
+<h3><strong>Performance Notes</strong><a class="headerlink" href="#performance-notes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>State abbreviation mapping is comprehensive for all 50 states plus DC</p></li>
+<li><p>District key generation handles “At Large” districts as district 1</p></li>
+<li><p>Party mismatch detection prevents inappropriate PVI scoring</p></li>
+<li><p>All original PVI data is preserved with adjustments clearly flagged</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils" />
+<section id="data-quality">
+<h2><strong>Data Quality</strong><a class="headerlink" href="#data-quality" title="Link to this heading">#</a></h2>
+<section id="data-integrity-notes">
+<h3><strong>Data Integrity Notes</strong><a class="headerlink" href="#data-integrity-notes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>PVI data is sourced from Cook Political, a respected political analysis firm</p></li>
+<li><p>Party mismatch adjustments ensure fair evaluation of bipartisan behavior</p></li>
+<li><p>State-district key generation handles edge cases (At Large districts, zero-padding)</p></li>
+<li><p>Both House and Senate data are processed consistently</p></li>
+</ul>
+</section>
+<section id="key-features">
+<h3><strong>Key Features</strong><a class="headerlink" href="#key-features" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>House Coverage:</strong> All 431 House districts with PVI data</p></li>
+<li><p><strong>Senate Coverage:</strong> All 100 Senate seats with state-level PVI data</p></li>
+<li><p><strong>Party Mismatch Handling:</strong> Automatic zeroing of PVI scores for opposing lean</p></li>
+<li><p><strong>Standardized Format:</strong> Consistent output structure for both chambers</p></li>
+</ul>
+</section>
+<section id="pvi-interpretation">
+<h3><strong>PVI Interpretation</strong><a class="headerlink" href="#pvi-interpretation" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>PVI Scale:</strong> Measures how much more Democratic or Republican a district/state is compared to the nation</p></li>
+<li><p><strong>Positive Values:</strong> Indicate Democratic lean relative to national average</p></li>
+<li><p><strong>Negative Values:</strong> Indicate Republican lean relative to national average</p></li>
+<li><p><strong>Zero Values:</strong> Indicate party mismatches or neutral districts</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils" />
+<section class="tex2jax_ignore mathjax_ignore" id="notebook-walkthrough-source-m-cook-political-partisan-voting-index-pvi">
+<h1><strong>Notebook Walkthrough: Source M - Cook Political Partisan Voting Index (PVI)</strong><a class="headerlink" href="#notebook-walkthrough-source-m-cook-political-partisan-voting-index-pvi" title="Link to this heading">#</a></h1>
+<p>This notebook prepares the <strong>Source M</strong> dataset—Cook Political Partisan Voting Index (PVI)—used in the Bridge Grades methodology to measure the partisan lean of each U.S. congressional district relative to the national average.</p>
+<ul class="simple">
+<li><p><strong>Source M:</strong> <em>Cook Political Partisan Voting Index (PVI)</em></p></li>
+<li><p><strong>Origin:</strong> Obtained via paid subscription from <a class="reference external" href="https://www.cookpolitical.com/cook-pvi">Cook Political</a></p></li>
+<li><p><strong>Date downloaded:</strong> April 03, 2025 (Data updates periodically. Last checked: August 8, 2025)</p></li>
+</ul>
+<p>The PVI values generated here will be merged into the master district-level dataset for final Bridge Grade calculations.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">norm</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandas.errors</span> <span class="kn">import</span> <span class="n">SettingWithCopyWarning</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="p">(</span><span class="n">SettingWithCopyWarning</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="load-parse-pvi-values">
+<h2><strong>Load &amp; Parse PVI Values</strong><a class="headerlink" href="#load-parse-pvi-values" title="Link to this heading">#</a></h2>
+<p>We read the Excel sheet, split the <code class="docutils literal notranslate"><span class="pre">&quot;2025</span> <span class="pre">Cook</span> <span class="pre">PVI&quot;</span></code> column into <strong>party</strong> and <strong>numeric</strong> components, and cast the numeric part to integer.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load raw Cook PVI for the 119th Congress (2025–26)</span>
+<span class="n">house_pvi</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span>
+    <span class="s1">&#39;../Data/Source M/Input files/Cook PVI 1997-2025.xlsx&#39;</span><span class="p">,</span>
+    <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;119 (25-26)&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split &quot;2025 Cook PVI&quot; into Party and Number</span>
+<span class="n">house_pvi</span><span class="p">[[</span><span class="s1">&#39;PVI_Party&#39;</span><span class="p">,</span><span class="s1">&#39;PVI_Number&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">house_pvi</span><span class="p">[</span><span class="s1">&#39;2025 Cook PVI&#39;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert numeric part to integer, coerce errors to NaN</span>
+<span class="n">house_pvi</span><span class="p">[</span><span class="s1">&#39;PVI_Number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">house_pvi</span><span class="p">[</span><span class="s1">&#39;PVI_Number&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">house_pvi</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>State</th>
+      <th>Number</th>
+      <th>Member</th>
+      <th>Party</th>
+      <th>2025 Cook PVI</th>
+      <th>PVI_Party</th>
+      <th>PVI_Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alabama</td>
+      <td>1</td>
+      <td>Barry Moore</td>
+      <td>R</td>
+      <td>R+27</td>
+      <td>R</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alabama</td>
+      <td>2</td>
+      <td>Shomari Figures</td>
+      <td>D</td>
+      <td>D+5</td>
+      <td>D</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Alabama</td>
+      <td>3</td>
+      <td>Mike Rogers</td>
+      <td>R</td>
+      <td>R+23</td>
+      <td>R</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Alabama</td>
+      <td>4</td>
+      <td>Robert Aderholt</td>
+      <td>R</td>
+      <td>R+33</td>
+      <td>R</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Alabama</td>
+      <td>5</td>
+      <td>Dale Strong</td>
+      <td>R</td>
+      <td>R+15</td>
+      <td>R</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Alabama</td>
+      <td>6</td>
+      <td>Gary Palmer</td>
+      <td>R</td>
+      <td>R+20</td>
+      <td>R</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Alabama</td>
+      <td>7</td>
+      <td>Terri Sewell</td>
+      <td>D</td>
+      <td>D+13</td>
+      <td>D</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Alaska</td>
+      <td>AL</td>
+      <td>Nick Begich</td>
+      <td>R</td>
+      <td>R+6</td>
+      <td>R</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Arizona</td>
+      <td>1</td>
+      <td>David Schweikert</td>
+      <td>R</td>
+      <td>R+1</td>
+      <td>R</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Arizona</td>
+      <td>2</td>
+      <td>Eli Crane</td>
+      <td>R</td>
+      <td>R+7</td>
+      <td>R</td>
+      <td>7</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="load-parse-senate-pvi">
+<h2><strong>Load &amp; Parse Senate PVI</strong><a class="headerlink" href="#load-parse-senate-pvi" title="Link to this heading">#</a></h2>
+<p>We read the CSV of state‐level PVI, split the <code class="docutils literal notranslate"><span class="pre">&quot;Raw</span> <span class="pre">PVI&quot;</span></code> into party lean and numeric components, and convert the numeric part to integer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load raw Senate PVI by state</span>
+<span class="n">senate_pvi</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="s1">&#39;../Data/Source M/Input files/2025 PVI States.csv&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Split &quot;2025 PVI&quot; into Lean Party and Number</span>
+<span class="n">senate_pvi</span><span class="p">[[</span><span class="s1">&#39;PVI_Party&#39;</span><span class="p">,</span><span class="s1">&#39;PVI_Number&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">senate_pvi</span><span class="p">[</span><span class="s1">&#39;2025 PVI&#39;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert numeric part to integer, default 0 on errors</span>
+<span class="n">senate_pvi</span><span class="p">[</span><span class="s1">&#39;PVI_Number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span>
+    <span class="n">senate_pvi</span><span class="p">[</span><span class="s1">&#39;PVI_Number&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">senate_pvi</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>State</th>
+      <th>2025 PVI</th>
+      <th>Raw PVI</th>
+      <th>Rank (D to R)</th>
+      <th>PVI_Party</th>
+      <th>PVI_Number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alabama</td>
+      <td>R+15</td>
+      <td>R+14.81</td>
+      <td>44</td>
+      <td>R</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alaska</td>
+      <td>R+6</td>
+      <td>R+6.46</td>
+      <td>32</td>
+      <td>R</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Arizona</td>
+      <td>R+2</td>
+      <td>R+2.06</td>
+      <td>27</td>
+      <td>R</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Arkansas</td>
+      <td>R+15</td>
+      <td>R+15.31</td>
+      <td>46</td>
+      <td>R</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>California</td>
+      <td>D+12</td>
+      <td>D+11.52</td>
+      <td>6</td>
+      <td>D</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Colorado</td>
+      <td>D+6</td>
+      <td>D+5.96</td>
+      <td>14</td>
+      <td>D</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Connecticut</td>
+      <td>D+8</td>
+      <td>D+8.08</td>
+      <td>8</td>
+      <td>D</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Delaware</td>
+      <td>D+8</td>
+      <td>D+8.01</td>
+      <td>9</td>
+      <td>D</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>D.C.</td>
+      <td>D+44</td>
+      <td>D+43.6</td>
+      <td>1</td>
+      <td>D</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Florida</td>
+      <td>R+5</td>
+      <td>R+5.39</td>
+      <td>29</td>
+      <td>R</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="prepare-party-state-district-keys">
+<h2><strong>Prepare party-state-district keys</strong><a class="headerlink" href="#prepare-party-state-district-keys" title="Link to this heading">#</a></h2>
+<p>We add a key that will later be used to identify the different parties. We also need a common union key with the format “XX-DD” (for example, “CA-12”). We:</p>
+<ol class="arabic simple">
+<li><p>Add a key to identify the party with the initial of its name.</p></li>
+<li><p>Assign the full names of the states to the USPS abbreviations in <em>both</em> DataFrames.</p></li>
+<li><p>Create a district string with zero padding, treating “At Large” as district 1.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read in the 119th Congress data with bioguide ids</span>
+<span class="n">files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">&quot;../Data/Source C-D-E-F/Input files/119th_Congress_*.csv&quot;</span><span class="p">))</span>
+<span class="n">latest</span> <span class="o">=</span> <span class="n">files</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">df_119</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">latest</span><span class="p">)</span>
+<span class="n">meta_data</span> <span class="o">=</span> <span class="n">df_119</span><span class="p">[[</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="s2">&quot;bioguide_id&quot;</span><span class="p">,</span> <span class="s2">&quot;Party&quot;</span><span class="p">,</span> <span class="s2">&quot;Chamber&quot;</span><span class="p">,</span> <span class="s2">&quot;State&quot;</span><span class="p">,</span> <span class="s2">&quot;District&quot;</span><span class="p">]]</span>
+
+<span class="c1"># meta_data[&quot;Party&quot;] is R, if the party is Republican, D if Democrat, I if Independent</span>
+<span class="n">meta_data</span><span class="p">[</span><span class="s2">&quot;Party_Abbr&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_data</span><span class="p">[</span><span class="s2">&quot;Party&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span>
+    <span class="s2">&quot;Republican&quot;</span><span class="p">:</span> <span class="s2">&quot;R&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Democratic&quot;</span><span class="p">:</span> <span class="s2">&quot;D&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Independent&quot;</span><span class="p">:</span> <span class="s2">&quot;I&quot;</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta_data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>bioguide_id</th>
+      <th>Party</th>
+      <th>Chamber</th>
+      <th>State</th>
+      <th>District</th>
+      <th>Party_Abbr</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mark B. Messmer</td>
+      <td>M001233</td>
+      <td>Republican</td>
+      <td>House</td>
+      <td>Indiana</td>
+      <td>8.0</td>
+      <td>R</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Delia C. Ramirez</td>
+      <td>R000617</td>
+      <td>Democratic</td>
+      <td>House</td>
+      <td>Illinois</td>
+      <td>3.0</td>
+      <td>D</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Tim Sheehy</td>
+      <td>S001232</td>
+      <td>Republican</td>
+      <td>Senate</td>
+      <td>Montana</td>
+      <td>NaN</td>
+      <td>R</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Ben Ray Luján</td>
+      <td>L000570</td>
+      <td>Democratic</td>
+      <td>Senate</td>
+      <td>New Mexico</td>
+      <td>NaN</td>
+      <td>D</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Josh Hawley</td>
+      <td>H001089</td>
+      <td>Republican</td>
+      <td>Senate</td>
+      <td>Missouri</td>
+      <td>NaN</td>
+      <td>R</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Peter Welch</td>
+      <td>W000800</td>
+      <td>Democratic</td>
+      <td>Senate</td>
+      <td>Vermont</td>
+      <td>NaN</td>
+      <td>D</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Bernie Moreno</td>
+      <td>M001242</td>
+      <td>Republican</td>
+      <td>Senate</td>
+      <td>Ohio</td>
+      <td>NaN</td>
+      <td>R</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>LaMonica McIver</td>
+      <td>M001229</td>
+      <td>Democratic</td>
+      <td>House</td>
+      <td>New Jersey</td>
+      <td>10.0</td>
+      <td>D</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Chrissy Houlahan</td>
+      <td>H001085</td>
+      <td>Democratic</td>
+      <td>House</td>
+      <td>Pennsylvania</td>
+      <td>6.0</td>
+      <td>D</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Ashley Moody</td>
+      <td>M001244</td>
+      <td>Republican</td>
+      <td>Senate</td>
+      <td>Florida</td>
+      <td>NaN</td>
+      <td>R</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># State name → USPS abbreviations</span>
+
+<span class="n">state_abbr</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;Alabama&#39;</span><span class="p">:</span> <span class="s1">&#39;AL&#39;</span><span class="p">,</span> <span class="s1">&#39;Alaska&#39;</span><span class="p">:</span> <span class="s1">&#39;AK&#39;</span><span class="p">,</span> <span class="s1">&#39;Arizona&#39;</span><span class="p">:</span> <span class="s1">&#39;AZ&#39;</span><span class="p">,</span> <span class="s1">&#39;Arkansas&#39;</span><span class="p">:</span> <span class="s1">&#39;AR&#39;</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">:</span> <span class="s1">&#39;CA&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Colorado&#39;</span><span class="p">:</span> <span class="s1">&#39;CO&#39;</span><span class="p">,</span> <span class="s1">&#39;Connecticut&#39;</span><span class="p">:</span> <span class="s1">&#39;CT&#39;</span><span class="p">,</span> <span class="s1">&#39;Delaware&#39;</span><span class="p">:</span> <span class="s1">&#39;DE&#39;</span><span class="p">,</span> <span class="s1">&#39;Florida&#39;</span><span class="p">:</span> <span class="s1">&#39;FL&#39;</span><span class="p">,</span> <span class="s1">&#39;Georgia&#39;</span><span class="p">:</span> <span class="s1">&#39;GA&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Hawaii&#39;</span><span class="p">:</span> <span class="s1">&#39;HI&#39;</span><span class="p">,</span> <span class="s1">&#39;Idaho&#39;</span><span class="p">:</span> <span class="s1">&#39;ID&#39;</span><span class="p">,</span> <span class="s1">&#39;Illinois&#39;</span><span class="p">:</span> <span class="s1">&#39;IL&#39;</span><span class="p">,</span> <span class="s1">&#39;Indiana&#39;</span><span class="p">:</span> <span class="s1">&#39;IN&#39;</span><span class="p">,</span> <span class="s1">&#39;Iowa&#39;</span><span class="p">:</span> <span class="s1">&#39;IA&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Kansas&#39;</span><span class="p">:</span> <span class="s1">&#39;KS&#39;</span><span class="p">,</span> <span class="s1">&#39;Kentucky&#39;</span><span class="p">:</span> <span class="s1">&#39;KY&#39;</span><span class="p">,</span> <span class="s1">&#39;Louisiana&#39;</span><span class="p">:</span> <span class="s1">&#39;LA&#39;</span><span class="p">,</span> <span class="s1">&#39;Maine&#39;</span><span class="p">:</span> <span class="s1">&#39;ME&#39;</span><span class="p">,</span> <span class="s1">&#39;Maryland&#39;</span><span class="p">:</span> <span class="s1">&#39;MD&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Massachusetts&#39;</span><span class="p">:</span> <span class="s1">&#39;MA&#39;</span><span class="p">,</span> <span class="s1">&#39;Michigan&#39;</span><span class="p">:</span> <span class="s1">&#39;MI&#39;</span><span class="p">,</span> <span class="s1">&#39;Minnesota&#39;</span><span class="p">:</span> <span class="s1">&#39;MN&#39;</span><span class="p">,</span> <span class="s1">&#39;Mississippi&#39;</span><span class="p">:</span> <span class="s1">&#39;MS&#39;</span><span class="p">,</span> <span class="s1">&#39;Missouri&#39;</span><span class="p">:</span> <span class="s1">&#39;MO&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Montana&#39;</span><span class="p">:</span> <span class="s1">&#39;MT&#39;</span><span class="p">,</span> <span class="s1">&#39;Nebraska&#39;</span><span class="p">:</span> <span class="s1">&#39;NE&#39;</span><span class="p">,</span> <span class="s1">&#39;Nevada&#39;</span><span class="p">:</span> <span class="s1">&#39;NV&#39;</span><span class="p">,</span> <span class="s1">&#39;New Hampshire&#39;</span><span class="p">:</span> <span class="s1">&#39;NH&#39;</span><span class="p">,</span> <span class="s1">&#39;New Jersey&#39;</span><span class="p">:</span> <span class="s1">&#39;NJ&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;New Mexico&#39;</span><span class="p">:</span> <span class="s1">&#39;NM&#39;</span><span class="p">,</span> <span class="s1">&#39;New York&#39;</span><span class="p">:</span> <span class="s1">&#39;NY&#39;</span><span class="p">,</span> <span class="s1">&#39;North Carolina&#39;</span><span class="p">:</span> <span class="s1">&#39;NC&#39;</span><span class="p">,</span> <span class="s1">&#39;North Dakota&#39;</span><span class="p">:</span> <span class="s1">&#39;ND&#39;</span><span class="p">,</span> <span class="s1">&#39;Ohio&#39;</span><span class="p">:</span> <span class="s1">&#39;OH&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Oklahoma&#39;</span><span class="p">:</span> <span class="s1">&#39;OK&#39;</span><span class="p">,</span> <span class="s1">&#39;Oregon&#39;</span><span class="p">:</span> <span class="s1">&#39;OR&#39;</span><span class="p">,</span> <span class="s1">&#39;Pennsylvania&#39;</span><span class="p">:</span> <span class="s1">&#39;PA&#39;</span><span class="p">,</span> <span class="s1">&#39;Rhode Island&#39;</span><span class="p">:</span> <span class="s1">&#39;RI&#39;</span><span class="p">,</span> <span class="s1">&#39;South Carolina&#39;</span><span class="p">:</span> <span class="s1">&#39;SC&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;South Dakota&#39;</span><span class="p">:</span> <span class="s1">&#39;SD&#39;</span><span class="p">,</span> <span class="s1">&#39;Tennessee&#39;</span><span class="p">:</span> <span class="s1">&#39;TN&#39;</span><span class="p">,</span> <span class="s1">&#39;Texas&#39;</span><span class="p">:</span> <span class="s1">&#39;TX&#39;</span><span class="p">,</span> <span class="s1">&#39;Utah&#39;</span><span class="p">:</span> <span class="s1">&#39;UT&#39;</span><span class="p">,</span> <span class="s1">&#39;Vermont&#39;</span><span class="p">:</span> <span class="s1">&#39;VT&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Virginia&#39;</span><span class="p">:</span> <span class="s1">&#39;VA&#39;</span><span class="p">,</span> <span class="s1">&#39;Washington&#39;</span><span class="p">:</span> <span class="s1">&#39;WA&#39;</span><span class="p">,</span> <span class="s1">&#39;West Virginia&#39;</span><span class="p">:</span> <span class="s1">&#39;WV&#39;</span><span class="p">,</span> <span class="s1">&#39;Wisconsin&#39;</span><span class="p">:</span> <span class="s1">&#39;WI&#39;</span><span class="p">,</span> <span class="s1">&#39;Wyoming&#39;</span><span class="p">:</span> <span class="s1">&#39;WY&#39;</span><span class="p">,</span> <span class="s1">&#39;District of Columbia&#39;</span><span class="p">:</span><span class="s1">&#39;DC&#39;</span>
+
+<span class="p">}</span>
+
+<span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;State_Abbr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">state_abbr</span><span class="p">)</span>
+<span class="n">house_pvi</span><span class="p">[</span><span class="s1">&#39;State_Abbr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">house_pvi</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">state_abbr</span><span class="p">)</span>
+<span class="n">senate_pvi</span><span class="p">[</span><span class="s1">&#39;State_Abbr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">senate_pvi</span><span class="p">[</span><span class="s1">&#39;State&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">state_abbr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Build &quot;State_District&quot; key with zero-padded two digits</span>
+<span class="k">def</span> <span class="nf">make_sd</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">state_col</span><span class="p">,</span> <span class="n">dist_col</span><span class="p">):</span>
+
+    <span class="c1"># Convert district strings to numeric, default 1 for non‐numeric (at‐large)</span>
+    <span class="n">dist_num</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">dist_col</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+    <span class="c1"># Zero‐pad to two digits</span>
+    <span class="n">dist_str</span> <span class="o">=</span> <span class="n">dist_num</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">d</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">d</span><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span><span class="p">[</span><span class="n">state_col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;-&#39;</span> <span class="o">+</span> <span class="n">dist_str</span>
+
+<span class="n">meta_data</span><span class="p">[</span><span class="s1">&#39;State_District&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">make_sd</span><span class="p">(</span><span class="n">meta_data</span><span class="p">,</span> <span class="s1">&#39;State_Abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;District&#39;</span><span class="p">)</span>
+<span class="n">house_pvi</span><span class="p">[</span><span class="s1">&#39;State_District&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">make_sd</span><span class="p">(</span><span class="n">house_pvi</span><span class="p">,</span>  <span class="s1">&#39;State_Abbr&#39;</span><span class="p">,</span> <span class="s1">&#39;Number&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">house_pvi</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>State</th>
+      <th>Number</th>
+      <th>Member</th>
+      <th>Party</th>
+      <th>2025 Cook PVI</th>
+      <th>PVI_Party</th>
+      <th>PVI_Number</th>
+      <th>State_Abbr</th>
+      <th>State_District</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Alabama</td>
+      <td>1</td>
+      <td>Barry Moore</td>
+      <td>R</td>
+      <td>R+27</td>
+      <td>R</td>
+      <td>27</td>
+      <td>AL</td>
+      <td>AL-01</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Alabama</td>
+      <td>2</td>
+      <td>Shomari Figures</td>
+      <td>D</td>
+      <td>D+5</td>
+      <td>D</td>
+      <td>5</td>
+      <td>AL</td>
+      <td>AL-02</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Alabama</td>
+      <td>3</td>
+      <td>Mike Rogers</td>
+      <td>R</td>
+      <td>R+23</td>
+      <td>R</td>
+      <td>23</td>
+      <td>AL</td>
+      <td>AL-03</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Alabama</td>
+      <td>4</td>
+      <td>Robert Aderholt</td>
+      <td>R</td>
+      <td>R+33</td>
+      <td>R</td>
+      <td>33</td>
+      <td>AL</td>
+      <td>AL-04</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Alabama</td>
+      <td>5</td>
+      <td>Dale Strong</td>
+      <td>R</td>
+      <td>R+15</td>
+      <td>R</td>
+      <td>15</td>
+      <td>AL</td>
+      <td>AL-05</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>bioguide_id</th>
+      <th>Party</th>
+      <th>Chamber</th>
+      <th>State</th>
+      <th>District</th>
+      <th>Party_Abbr</th>
+      <th>State_Abbr</th>
+      <th>State_District</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mark B. Messmer</td>
+      <td>M001233</td>
+      <td>Republican</td>
+      <td>House</td>
+      <td>Indiana</td>
+      <td>8.0</td>
+      <td>R</td>
+      <td>IN</td>
+      <td>IN-08</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Delia C. Ramirez</td>
+      <td>R000617</td>
+      <td>Democratic</td>
+      <td>House</td>
+      <td>Illinois</td>
+      <td>3.0</td>
+      <td>D</td>
+      <td>IL</td>
+      <td>IL-03</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Tim Sheehy</td>
+      <td>S001232</td>
+      <td>Republican</td>
+      <td>Senate</td>
+      <td>Montana</td>
+      <td>NaN</td>
+      <td>R</td>
+      <td>MT</td>
+      <td>MT-01</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Ben Ray Luján</td>
+      <td>L000570</td>
+      <td>Democratic</td>
+      <td>Senate</td>
+      <td>New Mexico</td>
+      <td>NaN</td>
+      <td>D</td>
+      <td>NM</td>
+      <td>NM-01</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Josh Hawley</td>
+      <td>H001089</td>
+      <td>Republican</td>
+      <td>Senate</td>
+      <td>Missouri</td>
+      <td>NaN</td>
+      <td>R</td>
+      <td>MO</td>
+      <td>MO-01</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="merge-filter-for-house">
+<h2><strong>Merge &amp; Filter for House</strong><a class="headerlink" href="#merge-filter-for-house" title="Link to this heading">#</a></h2>
+<p>We left-join the PVI onto our <code class="docutils literal notranslate"><span class="pre">meta_data</span></code>, then isolate *<em>House</em> members only and rename columns for clarity.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Merge on State_District</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">meta_data</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+    <span class="n">house_pvi</span><span class="p">[[</span><span class="s1">&#39;State_District&#39;</span><span class="p">,</span><span class="s1">&#39;PVI_Party&#39;</span><span class="p">,</span><span class="s1">&#39;PVI_Number&#39;</span><span class="p">]],</span>
+    <span class="n">on</span><span class="o">=</span><span class="s1">&#39;State_District&#39;</span><span class="p">,</span>
+    <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># Keep only House chamber</span>
+<span class="n">source_pvi_house</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Chamber==&#39;House&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Rename for consistency</span>
+<span class="n">source_pvi_house</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span>
+    <span class="s1">&#39;PVI_Party&#39;</span><span class="p">:</span><span class="s1">&#39;Cook_PVI_Party&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PVI_Number&#39;</span><span class="p">:</span><span class="s1">&#39;Cook_PVI_Number&#39;</span>
+<span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Flag differences</span>
+<span class="n">source_pvi_house</span><span class="p">[</span><span class="s1">&#39;PVI_Party_Diff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">source_pvi_house</span><span class="p">[</span><span class="s1">&#39;Party_Abbr&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">source_pvi_house</span><span class="p">[</span><span class="s1">&#39;Cook_PVI_Party&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># Zero out numeric PVI where party mismatches</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">source_pvi_house</span><span class="p">[</span><span class="s1">&#39;PVI_Party_Diff&#39;</span><span class="p">]</span>
+<span class="n">source_pvi_house</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="s1">&#39;Cook_PVI_Number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="finalize-export">
+<h2><strong>Finalize &amp; Export</strong><a class="headerlink" href="#finalize-export" title="Link to this heading">#</a></h2>
+<p>Select only the columns needed for Bridge Grades and save to CSV.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_cols</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;Name&#39;</span><span class="p">,</span><span class="s1">&#39;Chamber&#39;</span><span class="p">,</span><span class="s1">&#39;bioguide_id&#39;</span><span class="p">,</span><span class="s1">&#39;Party&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Cook_PVI_Party&#39;</span><span class="p">,</span><span class="s1">&#39;Cook_PVI_Number&#39;</span><span class="p">,</span><span class="s1">&#39;PVI_Party_Diff&#39;</span>
+<span class="p">]</span>
+<span class="n">source_pvi_house</span><span class="p">[</span><span class="n">final_cols</span><span class="p">]</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
+    <span class="s1">&#39;../Data/Source M/Output files/bridge_grade_source_m_house_pvi.csv&#39;</span><span class="p">,</span>
+    <span class="n">index</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">source_pvi_house</span><span class="p">[</span><span class="n">final_cols</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Chamber</th>
+      <th>bioguide_id</th>
+      <th>Party</th>
+      <th>Cook_PVI_Party</th>
+      <th>Cook_PVI_Number</th>
+      <th>PVI_Party_Diff</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Mark B. Messmer</td>
+      <td>House</td>
+      <td>M001233</td>
+      <td>Republican</td>
+      <td>R</td>
+      <td>18</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Delia C. Ramirez</td>
+      <td>House</td>
+      <td>R000617</td>
+      <td>Democratic</td>
+      <td>D</td>
+      <td>17</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>LaMonica McIver</td>
+      <td>House</td>
+      <td>M001229</td>
+      <td>Democratic</td>
+      <td>D</td>
+      <td>27</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Chrissy Houlahan</td>
+      <td>House</td>
+      <td>H001085</td>
+      <td>Democratic</td>
+      <td>D</td>
+      <td>6</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Robert Menendez</td>
+      <td>House</td>
+      <td>M001226</td>
+      <td>Democratic</td>
+      <td>D</td>
+      <td>15</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Valerie P. Foushee</td>
+      <td>House</td>
+      <td>F000477</td>
+      <td>Democratic</td>
+      <td>D</td>
+      <td>23</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Shri Thanedar</td>
+      <td>House</td>
+      <td>T000488</td>
+      <td>Democratic</td>
+      <td>D</td>
+      <td>22</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Jimmy Patronis</td>
+      <td>House</td>
+      <td>P000622</td>
+      <td>Republican</td>
+      <td>R</td>
+      <td>18</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Randy Fine</td>
+      <td>House</td>
+      <td>F000484</td>
+      <td>Republican</td>
+      <td>R</td>
+      <td>14</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Hillary J. Scholten</td>
+      <td>House</td>
+      <td>S001221</td>
+      <td>Democratic</td>
+      <td>D</td>
+      <td>4</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<section id="prepare-senator-metadata-merge">
+<h3><strong>Prepare Senator Metadata &amp; Merge</strong><a class="headerlink" href="#prepare-senator-metadata-merge" title="Link to this heading">#</a></h3>
+<p>We filter our <code class="docutils literal notranslate"><span class="pre">meta_data</span></code> to Senate members, derive the first letter of their party, and merge on state name.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sen_meta</span> <span class="o">=</span> <span class="n">meta_data</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;Chamber==&#39;Senate&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Merge PVI onto senators by State</span>
+<span class="n">senate_merge</span> <span class="o">=</span> <span class="n">sen_meta</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+    <span class="n">senate_pvi</span><span class="p">[[</span><span class="s1">&#39;State&#39;</span><span class="p">,</span><span class="s1">&#39;PVI_Party&#39;</span><span class="p">,</span><span class="s1">&#39;PVI_Number&#39;</span><span class="p">]],</span>
+    <span class="n">on</span><span class="o">=</span><span class="s1">&#39;State&#39;</span><span class="p">,</span>
+    <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="flag-adjust-party-mismatches">
+<h3><strong>Flag &amp; Adjust Party Mismatches</strong><a class="headerlink" href="#flag-adjust-party-mismatches" title="Link to this heading">#</a></h3>
+<p>If a senator’s party letter differs from the Cook‐PVI lean, we zero out the PVI number so they aren’t credited for an opposing lean.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Flag mismatches between senator’s party and PVI lean</span>
+<span class="n">senate_merge</span><span class="p">[</span><span class="s1">&#39;PVI_Party_Diff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">senate_merge</span><span class="p">[</span><span class="s1">&#39;Party_Abbr&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">senate_merge</span><span class="p">[</span><span class="s1">&#39;PVI_Party&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># Zero‐out PVI_Number where mismatch is True</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">senate_merge</span><span class="p">[</span><span class="s1">&#39;PVI_Party_Diff&#39;</span><span class="p">]</span>
+<span class="n">senate_merge</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="s1">&#39;PVI_Number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h3><strong>Finalize &amp; Export</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Select the necessary columns and save the CSV for Source M – Senate.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select output fields</span>
+<span class="n">final_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span><span class="s1">&#39;Chamber&#39;</span><span class="p">,</span><span class="s1">&#39;bioguide_id&#39;</span><span class="p">,</span><span class="s1">&#39;Party&#39;</span><span class="p">,</span><span class="s1">&#39;PVI_Party&#39;</span><span class="p">,</span><span class="s1">&#39;PVI_Number&#39;</span><span class="p">,</span><span class="s1">&#39;PVI_Party_Diff&#39;</span><span class="p">]</span>
+<span class="n">source_pvi_senate</span> <span class="o">=</span> <span class="n">senate_merge</span><span class="p">[</span><span class="n">final_cols</span><span class="p">]</span>
+
+<span class="c1"># Export</span>
+<span class="n">source_pvi_senate</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
+    <span class="s1">&#39;../Data/Source M/Output files/bridge_grade_source_m_senate_pvi.csv&#39;</span><span class="p">,</span>
+    <span class="n">index</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">senate_merge</span><span class="p">[</span><span class="n">final_cols</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Chamber</th>
+      <th>bioguide_id</th>
+      <th>Party</th>
+      <th>PVI_Party</th>
+      <th>PVI_Number</th>
+      <th>PVI_Party_Diff</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Tim Sheehy</td>
+      <td>Senate</td>
+      <td>S001232</td>
+      <td>Republican</td>
+      <td>R</td>
+      <td>10</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Ben Ray Luján</td>
+      <td>Senate</td>
+      <td>L000570</td>
+      <td>Democratic</td>
+      <td>D</td>
+      <td>4</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Josh Hawley</td>
+      <td>Senate</td>
+      <td>H001089</td>
+      <td>Republican</td>
+      <td>R</td>
+      <td>9</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Peter Welch</td>
+      <td>Senate</td>
+      <td>W000800</td>
+      <td>Democratic</td>
+      <td>D</td>
+      <td>17</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Bernie Moreno</td>
+      <td>Senate</td>
+      <td>M001242</td>
+      <td>Republican</td>
+      <td>R</td>
+      <td>5</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Ashley Moody</td>
+      <td>Senate</td>
+      <td>M001244</td>
+      <td>Republican</td>
+      <td>R</td>
+      <td>5</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>John R. Curtis</td>
+      <td>Senate</td>
+      <td>C001114</td>
+      <td>Republican</td>
+      <td>R</td>
+      <td>11</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Jon Husted</td>
+      <td>Senate</td>
+      <td>H001104</td>
+      <td>Republican</td>
+      <td>R</td>
+      <td>5</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Eric Schmitt</td>
+      <td>Senate</td>
+      <td>S001227</td>
+      <td>Republican</td>
+      <td>R</td>
+      <td>9</td>
+      <td>False</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Angela D. Alsobrooks</td>
+      <td>Senate</td>
+      <td>A000382</td>
+      <td>Democratic</td>
+      <td>D</td>
+      <td>15</td>
+      <td>False</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Source%20C-D-E-F.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><strong>Source C-D-E-F: App Communications Calculations Data Processing</strong></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Source%20N.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><strong>Source N: VoteView Member Ideology Scores Processing</strong></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Source M: Cook Political Partisan Voting Index (PVI) Processing</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-sources"><strong>Data Sources</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-files"><strong>Input Files</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-source-details"><strong>Data Source Details</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#outputs"><strong>Outputs</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-m-house-pvi"><strong>Source M: House PVI</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#source-m-senate-pvi"><strong>Source M: Senate PVI</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-requirements"><strong>Technical Requirements</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies"><strong>Dependencies</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-notes"><strong>Performance Notes</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-quality"><strong>Data Quality</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-integrity-notes"><strong>Data Integrity Notes</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#key-features"><strong>Key Features</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pvi-interpretation"><strong>PVI Interpretation</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#notebook-walkthrough-source-m-cook-political-partisan-voting-index-pvi"><strong>Notebook Walkthrough: Source M - Cook Political Partisan Voting Index (PVI)</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-parse-pvi-values"><strong>Load &amp; Parse PVI Values</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-parse-senate-pvi"><strong>Load &amp; Parse Senate PVI</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-party-state-district-keys"><strong>Prepare party-state-district keys</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#merge-filter-for-house"><strong>Merge &amp; Filter for House</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#finalize-export"><strong>Finalize &amp; Export</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-senator-metadata-merge"><strong>Prepare Senator Metadata &amp; Merge</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#flag-adjust-party-mismatches"><strong>Flag &amp; Adjust Party Mismatches</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Finalize &amp; Export</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Bridge Grades Team
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
